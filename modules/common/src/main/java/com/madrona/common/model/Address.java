@@ -1,4 +1,4 @@
-package com.madrona.common;
+package com.madrona.common.model;
 
 
 import com.madrona.common.model.Student;
@@ -7,16 +7,18 @@ import org.hibernate.annotations.Parameter;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="ADDRESS")
-public class Address {
+public class Address implements Serializable {
 
     @Id
     @Column(name="STUDENT_ID", unique=true, nullable=false)
     @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="STUDENT"))
-    private long userId;
+    @GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="student"))
+    private long id;
+
     private String houseNumber;
     private String addressLine1;
     private String addressLine2;
@@ -27,12 +29,12 @@ public class Address {
     @PrimaryKeyJoinColumn
     private Student student;
 
-    public long getUserId() {
-        return userId;
+    public long getId() {
+        return id;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getHouseNumber() {

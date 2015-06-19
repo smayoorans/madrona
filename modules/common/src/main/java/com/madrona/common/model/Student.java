@@ -1,7 +1,5 @@
 package com.madrona.common.model;
 
-import com.madrona.common.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -15,8 +13,14 @@ public class Student implements Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "STUDENT_ID", unique = true, nullable = false)
     private long id;
+
+    @Column(name = "FIRST_NAME")
     private String firstName;
+
     private String lastName;
     private String dateOfBirth;
     private String grade;
@@ -24,15 +28,16 @@ public class Student implements Serializable {
     private String emailAddress;
     private String mobileNumber;
     private String houseId;
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Address homeAddress;
+
     private Date joinDate;
 
     public Student() {
     }
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "STUDENT_ID", unique = true, nullable = false)
+
     public long getId() {
         return id;
     }
@@ -105,7 +110,6 @@ public class Student implements Serializable {
         this.houseId = houseId;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "STUDENT", cascade = CascadeType.ALL)
     public Address getHomeAddress() {
         return homeAddress;
     }

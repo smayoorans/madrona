@@ -1,4 +1,4 @@
-package com.madrona.common;
+package com.madrona.common.model;
 
 public enum Gender {
     MALE, FEMALE;

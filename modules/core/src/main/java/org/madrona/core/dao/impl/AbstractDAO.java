@@ -57,6 +57,7 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
             getHibernateSession().save(object);
             return true;
         } catch (HibernateException ex) {
+
             return false;
         }
     }
