@@ -14,5 +14,29 @@
         <module>modules</module>
     </modules>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>mayoo</id>
+            <name>Mayooran</name>
+            <email>smayoorans@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>Madrona</name>
+        <url>www.madrona.lk</url>
+    </organization>
 
 </project>
