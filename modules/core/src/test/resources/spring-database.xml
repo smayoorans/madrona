@@ -1,0 +1,27 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--Driver name to connect to the database-->
+        <property name="driverClass" value="${mysql.login.jdbc.driver}"/>
+        <!--DB URL-->
+        <property name="jdbcUrl" value="${mysql.login.url}"/>
+        <!--DB User used to connect to the schema-->
+        <property name="user" value="${mysql.login.username}"/>
+        <!--Password required to access for the above user-->
+        <property name="password" value="${mysql.login.password}"/>
+        <!-- configuration pool via c3p0-->
+        <property name="acquireIncrement" value="${mysql.c3p0.acquireIncrement}"/>
+        <property name="idleConnectionTestPeriod" value="${mysql.c3p0.idleConnectionTestPeriod}"/>
+        <property name="maxPoolSize" value="${mysql.c3p0.maxPoolSize}"/>
+        <property name="maxStatements" value="${mysql.c3p0.maxStatements}"/>
+        <property name="minPoolSize" value="${mysql.c3p0.minPoolSize}"/>
+        <property name="initialPoolSize" value="${mysql.c3p0.initialPoolSize}"/>
+        <property name="maxIdleTime" value="${mysql.c3p0.maxIdleTime}"/>
+        <property name="acquireRetryAttempts" value="${mysql.c3p0.acquireRetryAttempts}"/>
+        <property name="acquireRetryDelay" value="${mysql.c3p0.acquireRetryDelay}"/>
+        <property name="breakAfterAcquireFailure" value="${mysql.c3p0.breakAfterAcquireFailure}"/>
+    </bean>
+</beans>
