@@ -7,13 +7,12 @@
         <groupId>com.madrona</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>web</artifactId>
+    <artifactId>madrona-web</artifactId>
     <packaging>war</packaging>
-    <name>web Maven Webapp</name>
     <url>http://maven.apache.org</url>
-
 
     <properties>
         <junit.version>3.8.1</junit.version>
