@@ -1,6 +1,6 @@
-package com.madrona.common.model;
+package org.madrona.common;
 
-import com.madrona.common.model.enumz.Gender;
+import org.madrona.common.enumz.Gender;
 
 import javax.persistence.*;
 import java.io.Serializable;

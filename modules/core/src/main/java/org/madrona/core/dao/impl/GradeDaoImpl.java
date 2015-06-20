@@ -1,6 +1,6 @@
 package org.madrona.core.dao.impl;
 
-import com.madrona.common.model.Grade;
+import org.madrona.common.Grade;
 import org.madrona.core.dao.GradeDao;
 import org.springframework.stereotype.Repository;
 

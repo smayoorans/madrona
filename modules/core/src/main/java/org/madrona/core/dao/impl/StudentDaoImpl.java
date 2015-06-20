@@ -1,7 +1,7 @@
 package org.madrona.core.dao.impl;
 
 
-import com.madrona.common.model.Student;
+import org.madrona.common.Student;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;

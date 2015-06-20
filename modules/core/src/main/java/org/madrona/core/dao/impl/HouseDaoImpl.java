@@ -1,6 +1,6 @@
 package org.madrona.core.dao.impl;
 
-import com.madrona.common.model.House;
+import org.madrona.common.House;
 import org.madrona.core.dao.HouseDao;
 import org.springframework.stereotype.Repository;
 

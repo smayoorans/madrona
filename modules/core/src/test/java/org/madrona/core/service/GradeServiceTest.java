@@ -1,7 +1,6 @@
 package org.madrona.core.service;
 
-import com.madrona.common.model.Grade;
-import com.madrona.common.model.House;
+import org.madrona.common.Grade;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;

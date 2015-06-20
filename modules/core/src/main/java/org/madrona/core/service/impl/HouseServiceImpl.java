@@ -1,10 +1,9 @@
 package org.madrona.core.service.impl;
 
-import com.madrona.common.model.House;
+import org.madrona.common.House;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.madrona.core.dao.HouseDao;
-import org.madrona.core.dao.impl.AbstractDAO;
 import org.madrona.core.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

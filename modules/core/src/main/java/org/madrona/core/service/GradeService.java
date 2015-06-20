@@ -1,9 +1,9 @@
 package org.madrona.core.service;
 
-import com.madrona.common.model.Grade;
+import org.madrona.common.Grade;
 
 /**
- * Grade Service
+ * Grade Related Service
  *
  * @author Mayooran
  */

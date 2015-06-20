@@ -1,6 +1,6 @@
 package org.madrona.core.dao;
 
-import com.madrona.common.model.Student;
+import org.madrona.common.Student;
 
 import java.util.List;
 

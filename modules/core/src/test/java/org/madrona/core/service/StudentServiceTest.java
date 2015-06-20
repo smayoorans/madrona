@@ -1,8 +1,8 @@
 package org.madrona.core.service;
 
-import com.madrona.common.model.Address;
-import com.madrona.common.model.enumz.Gender;
-import com.madrona.common.model.Student;
+import org.madrona.common.Address;
+import org.madrona.common.enumz.Gender;
+import org.madrona.common.Student;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;

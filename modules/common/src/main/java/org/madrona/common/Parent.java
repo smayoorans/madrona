@@ -1,4 +1,4 @@
-package com.madrona.common.model;
+package org.madrona.common;
 
 
 import javax.persistence.Entity;

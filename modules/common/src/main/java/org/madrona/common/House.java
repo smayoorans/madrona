@@ -1,6 +1,6 @@
-package com.madrona.common.model;
+package org.madrona.common;
 
-import com.madrona.common.model.enumz.HouseColor;
+import org.madrona.common.enumz.HouseColor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

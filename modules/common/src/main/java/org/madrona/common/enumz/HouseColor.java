@@ -1,4 +1,4 @@
-package com.madrona.common.model.enumz;
+package org.madrona.common.enumz;
 
 public enum HouseColor {
     RED, YELLOW, BLUE, BLACK, GREEN;

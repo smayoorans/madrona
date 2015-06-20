@@ -1,6 +1,6 @@
 package org.madrona.core.dao;
 
-import com.madrona.common.model.House;
+import org.madrona.common.House;
 
 /**
  * @author Mayooran

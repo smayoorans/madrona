@@ -2,7 +2,7 @@ package org.madrona.core.service;
 
 
 
-import com.madrona.common.model.Student;
+import org.madrona.common.Student;
 
 import java.util.List;
 

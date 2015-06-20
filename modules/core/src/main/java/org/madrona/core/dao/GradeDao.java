@@ -1,6 +1,6 @@
 package org.madrona.core.dao;
 
-import com.madrona.common.model.Grade;
+import org.madrona.common.Grade;
 
 /**
  * @author Mayooran

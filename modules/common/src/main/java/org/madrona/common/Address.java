@@ -1,4 +1,4 @@
-package com.madrona.common.model;
+package org.madrona.common;
 
 
 import org.hibernate.annotations.GenericGenerator;

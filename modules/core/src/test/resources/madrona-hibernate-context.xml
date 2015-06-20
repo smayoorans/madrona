@@ -27,9 +27,9 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>com.madrona.common.model.Student</value>
-                <value>com.madrona.common.model.Address</value>
-                <value>com.madrona.common.model.House</value>
+                <value>org.madrona.common.Student</value>
+                <value>org.madrona.common.Address</value>
+                <value>org.madrona.common.House</value>
             </list>
         </property>
 
