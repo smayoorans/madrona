@@ -17,33 +17,31 @@ public class StudentServiceImpl implements StudentService {
     private static final Logger logger = LogManager.getLogger(StudentServiceImpl.class);
 
     @Autowired
-	private StudentDao studentDao;
+    private StudentDao studentDao;
 
     @Override
-    public Student getStudentById(int id) {
-        logger.info("Viewing student details for id : " + id);
-        return studentDao.getStudentById(id);
+    public boolean insert(Student student) {
+        return studentDao.insert(student);
     }
 
     @Override
-    public int deleteStudentById(int id) {
-        return studentDao.deleteStudentById(id);
+    public Student getStudent(long studentId) {
+        return studentDao.get(studentId);
     }
 
     @Override
-    public boolean addStudent(Student student) {
-        logger.info("Inserting student details. "+ student);
-        return studentDao.addStudent(student);
+    public int delete(long id) {
+        return studentDao.delete(id);
     }
 
     @Override
-    public boolean updateStudent(Student student) {
-        return studentDao.updateStudent(student);
+    public boolean update(Student student) {
+        return studentDao.update(student);
     }
 
     @Override
     public List<Student> getAllStudents() {
-        return studentDao.getAllStudents();
+        return studentDao.getAll();
     }
 
     public void setStudentDao(StudentDao studentDao) {

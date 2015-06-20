@@ -6,14 +6,14 @@ import java.util.List;
 
 public interface StudentDao {
 
-    boolean addStudent(Student student);
+    boolean insert(Student student);
 
-    Student getStudentById(int id);
+    Student get(long studentId);
 
-    int deleteStudentById(int id);
+    int delete(long id);
 
-    boolean updateStudent(Student student);
+    boolean update(Student student);
 
-    List<Student> getAllStudents();
+    List<Student> getAll();
 }
 

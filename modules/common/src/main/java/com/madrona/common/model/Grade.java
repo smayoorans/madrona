@@ -14,7 +14,7 @@ public class Grade implements RequestMessage, Serializable {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String gradeName;
     private String gradeTeacher;
 
@@ -26,11 +26,11 @@ public class Grade implements RequestMessage, Serializable {
         this.gradeTeacher = gradeTeacher;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

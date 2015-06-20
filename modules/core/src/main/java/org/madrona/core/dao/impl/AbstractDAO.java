@@ -12,6 +12,13 @@ import javax.annotation.PreDestroy;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Generic class for all Data Access Object Operations
+ *
+ * @author Mayooran
+ * @param <T>
+ */
+
 @Repository
 public abstract class AbstractDAO<T extends Serializable> implements Serializable {
 
@@ -35,10 +42,10 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
     }
 
     @Transactional
-    protected T getById(int id) {
+    public T getById(long id) {
         String queryString = "from " + clazz.getSimpleName() + " where id = :id";
         Query query = getHibernateSession().createQuery(queryString);
-        query.setInteger("id", id);
+        query.setLong("id", id);
         object = (T) query.uniqueResult();
         return object;
     }
@@ -52,7 +59,7 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
     }
 
     @Transactional
-    protected boolean insert(T object) {
+    public boolean insert(T object) {
         try {
             getHibernateSession().save(object);
             return true;

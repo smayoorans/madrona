@@ -8,8 +8,7 @@
 
     <import resource="database-context.xml"/>
 
-    <bean id="placeholderConfig"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:connection.properties</value>
@@ -17,39 +16,37 @@
         </property>
     </bean>
 
-
     <!-- Hibernate Session Factory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+
         <property name="packagesToScan">
             <array>
                 <value>com.madrona.common.model</value>
             </array>
         </property>
-        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
+        <property name="annotatedClasses">
+            <list>
+                <value>com.madrona.common.model.Student</value>
+                <value>com.madrona.common.model.Address</value>
+            </list>
+        </property>
+
         <property name="hibernateProperties">
-
             <props>
-                <prop key="hibernate.dialect">${mysql.jdbc.dialect}</prop>
-
-                <prop key="hibernate.connection.driver_class">${mysql.login.jdbc.driver}</prop>
-                <prop key="hibernate.connection.url">${mysql.login.url}</prop>
-                <prop key="hibernate.connection.username">${mysql.login.username}</prop>
-                <prop key="hibernate.connection.password">${mysql.login.password}</prop>
-
                 <!-- Echo all executed SQL to stdout -->
                 <prop key="hibernate.show_sql">true</prop>
+                <!-- Automatically validates or exports schema DDL to the database when the SessionFactory is created-->
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <!-- Pretty print the SQL in the log and console -->
+                <prop key="hibernate.format_sql">true</prop>
 
                 <!-- Disable the second-level cache  -->
                 <prop key="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</prop>
                 <!-- Enable Hibernate's automatic session context management -->
                 <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
-
             </props>
-
         </property>
-
     </bean>
 
     <!-- Hibernate Transaction Manager -->

@@ -6,15 +6,19 @@ import com.madrona.common.model.Student;
 
 import java.util.List;
 
+/**
+ *  Student Service Interface
+ *  @author Mayooran
+ */
 public interface StudentService {
 
-    Student getStudentById(int id);
+    boolean insert(Student student);
 
-    int deleteStudentById(int id);
+    Student getStudent(long studentId);
 
-    boolean addStudent(Student student);
+    boolean update(Student student);
 
-    boolean updateStudent(Student student);
+    int delete(long id);
 
     List<Student> getAllStudents();
 }

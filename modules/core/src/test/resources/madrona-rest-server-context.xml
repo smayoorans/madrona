@@ -6,9 +6,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="studentService" class="org.madrona.core.service.impl.StudentServiceImpl"
-          p:studentDao-ref="studentDAO"/>
-
     <bean id="studentDAO" class="org.madrona.core.dao.impl.StudentDaoImpl"/>
+    <bean id="houseDao" class="org.madrona.core.dao.impl.HouseDaoImpl"/>
+    <bean id="gradeDao" class="org.madrona.core.dao.impl.GradeDaoImpl"/>
+
+    <bean id="studentService" class="org.madrona.core.service.impl.StudentServiceImpl"/>
+    <bean id="houseService"  class="org.madrona.core.service.impl.HouseServiceImpl"/>
+    <bean id="gradeService"  class="org.madrona.core.service.impl.GradeServiceImpl"/>
 
 </beans>
