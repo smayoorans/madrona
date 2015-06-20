@@ -12,5 +12,11 @@
 
     <artifactId>madrona-common</artifactId>
 
-
+    <dependencies><!-- Hibernate Dependencies-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+    </dependencies>
 </project>

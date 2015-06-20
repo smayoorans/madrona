@@ -26,7 +26,7 @@
     <context:property-placeholder location="classpath:connection.properties"/>
 
     <import resource="madrona-hibernate-context.xml"/>
-    <import resource="spring-database.xml"/>
+    <import resource="database-context.xml"/>
 
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

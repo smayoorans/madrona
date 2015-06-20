@@ -50,7 +50,7 @@ public class StudentServiceTest {
 
         Thread.sleep(2000);
 
-        studentService.getStudentById()
+
 
         logger.info("Student details inserted");
     }
