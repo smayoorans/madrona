@@ -2,6 +2,7 @@ package org.madrona.core.dao.impl;
 
 
 import com.madrona.common.model.Student;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.madrona.core.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +21,17 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     @Transactional
     public boolean addStudent(Student student) {
-
         sessionFactory.getCurrentSession().save(student);
         return true;
     }
 
     @Override
     public Student getStudentById(int id) {
-        return null;
+        String queryString = "from Student where id = :id";
+        Query query = sessionFactory.getCurrentSession().createQuery(queryString);
+        query.setInteger("id", id);
+        return  (Student) query.uniqueResult();
+
     }
 
     @Override

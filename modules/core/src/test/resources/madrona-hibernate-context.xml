@@ -6,6 +6,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <import resource="spring-database.xml"/>
+
     <bean id="placeholderConfig"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -40,7 +42,7 @@
                 <prop key="hibernate.hbm2ddl.auto">create</prop>
 
                 <!-- Disable the second-level cache  -->
-                <!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>-->
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</prop>
                 <!-- Enable Hibernate's automatic session context management -->
                 <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
 

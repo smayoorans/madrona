@@ -2,11 +2,10 @@ package com.madrona.common.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Table(name = "STUDENT")
 public class Student implements Serializable {
@@ -21,18 +20,29 @@ public class Student implements Serializable {
     @Column(name = "FIRST_NAME")
     private String firstName;
 
+    @Column(name = "LAST_NAME")
     private String lastName;
-    private String dateOfBirth;
+
+    @Column(name = "DATE_OF_BIRTH")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "GRADE")
     private String grade;
-    private String gender;
+
+    @Column(name = "GENDER")
+    private Gender gender;
+
+    @Column(name = "EMAIL")
     private String emailAddress;
+
+    @Column(name = "MOBILE_NO")
     private String mobileNumber;
-    private String houseId;
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Address homeAddress;
 
-    private Date joinDate;
+    @Column(name = "JOINED_DATE")
+    private LocalDate joinedDate;
 
     public Student() {
     }
@@ -42,7 +52,7 @@ public class Student implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -62,11 +72,11 @@ public class Student implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -78,11 +88,11 @@ public class Student implements Serializable {
         this.grade = grade;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -102,14 +112,6 @@ public class Student implements Serializable {
         this.mobileNumber = mobileNumber;
     }
 
-    public String getHouseId() {
-        return houseId;
-    }
-
-    public void setHouseId(String houseId) {
-        this.houseId = houseId;
-    }
-
     public Address getHomeAddress() {
         return homeAddress;
     }
@@ -118,29 +120,12 @@ public class Student implements Serializable {
         this.homeAddress = homeAddress;
     }
 
-    public Date getJoinDate() {
-        return joinDate;
+    public LocalDate getJoinedDate() {
+        return joinedDate;
     }
 
-    public void setJoinDate(Date joinDate) {
-        this.joinDate = joinDate;
-    }
-
-
-
-    public Map<String, Object> convertToMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("firstName", firstName);
-        map.put("lastName", lastName);
-        map.put("dateOfBirth", dateOfBirth);
-        map.put("gender", gender);
-        map.put("grade", grade);
-        map.put("emailAddress", emailAddress);
-        map.put("mobileNumber", mobileNumber);
-        map.put("houseId", houseId);
-        map.put("homeAddress", homeAddress);
-        map.put("joinDate", joinDate);
-        return map;
+    public void setJoinedDate(LocalDate joinedDate) {
+        this.joinedDate = joinedDate;
     }
 
     @Override
@@ -149,14 +134,13 @@ public class Student implements Serializable {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
                 ", grade='" + grade + '\'' +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", mobileNumber='" + mobileNumber + '\'' +
-                ", houseId='" + houseId + '\'' +
-                ", homeAddress='" + homeAddress + '\'' +
-                ", joinDate=" + joinDate +
+                ", homeAddress=" + homeAddress +
+                ", joinedDate=" + joinedDate +
                 '}';
     }
 }

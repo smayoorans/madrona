@@ -1,6 +1,7 @@
 package org.madrona.core.service;
 
 import com.madrona.common.model.Address;
+import com.madrona.common.model.Gender;
 import com.madrona.common.model.Student;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.time.LocalDate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/applicationContext.xml"})
@@ -20,23 +23,35 @@ public class StudentServiceTest {
     private StudentService studentService;
 
     @Test
-    public void testAddStudent() throws Exception {
-        logger.info("Running Insert student test case");
+    public void testAddStudentWithAddress() throws Exception {
+
+        logger.debug("Running Test Case [testAddStudentWithAddress]");
         Address address = new Address();
-        address.setAddressLine1("H1dfdf");
-        address.setHouseNumber("1233");
+        address.setHouseNumber("No 320");
+        address.setAddressLine1("2nd Floor");
+        address.setAddressLine2("T.B Jayah Mawatha");
+        address.setDistrict("Colombo");
+        address.setProvince("Western");
 
 
         Student student = new Student();
-        student.setFirstName("Mayoorandfdf");
-        student.setEmailAddress("Somasunddfsdffaram");
-
+        student.setFirstName("Mayooran");
+        student.setLastName("Somasundaram");
+        student.setEmailAddress("smayoorans@gmail.com");
+        student.setGender(Gender.FEMALE);
+        student.setDateOfBirth(LocalDate.now());
+        student.setJoinedDate(LocalDate.now());
         student.setHomeAddress(address);
+
         address.setStudent(student);
         studentService.addStudent(student);
+        studentService.addStudent(student);
 
-//        Student studentById = studentService.getStudentById(student.getId());
-//        assertEquals("Mayooran", studentById.getFirstName());
+
+        Thread.sleep(2000);
+
+        studentService.getStudentById()
+
         logger.info("Student details inserted");
     }
 }

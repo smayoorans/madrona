@@ -1,22 +1,20 @@
 package com.madrona.common.model;
 
 
-import com.madrona.common.model.Student;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="ADDRESS")
+@Table(name = "ADDRESS")
 public class Address implements Serializable {
 
     @Id
-    @Column(name="STUDENT_ID", unique=true, nullable=false)
-    @GeneratedValue(generator="gen")
-    @GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="student"))
+    @Column(name = "STUDENT_ID", unique = true, nullable = false)
+    @GeneratedValue(generator = "gen")
+    @GenericGenerator(name = "gen", strategy = "foreign", parameters = @Parameter(name = "property", value = "student"))
     private long id;
 
     private String houseNumber;
