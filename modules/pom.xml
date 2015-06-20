@@ -14,8 +14,6 @@
         <module>parent</module>
         <module>common</module>
         <module>core</module>
-        <module>server</module>
-        <module>web</module>
     </modules>
 
 </project>

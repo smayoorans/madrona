@@ -1,15 +1,15 @@
 package com.madrona.common.model;
 
+import com.madrona.common.model.enumz.HouseColor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.LocalDate;
 
 @Entity
-public class House implements RequestMessage, Serializable {
+public class House implements Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
@@ -17,8 +17,8 @@ public class House implements RequestMessage, Serializable {
     @GeneratedValue
     private int id;
     private String houseName;
-    private String houseColor;
-    private Date createDate;
+    private HouseColor houseColor;
+    private LocalDate createDate;
 
     public int getId() {
         return id;
@@ -36,40 +36,29 @@ public class House implements RequestMessage, Serializable {
         this.houseName = houseName;
     }
 
-    public String getHouseColor() {
+    public HouseColor getHouseColor() {
         return houseColor;
     }
 
-    public void setHouseColor(String houseColor) {
+    public void setHouseColor(HouseColor houseColor) {
         this.houseColor = houseColor;
     }
 
-    public Date getCreateDate() {
+    public LocalDate getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        sb.append("House");
-        sb.append("{id=").append(id);
-        sb.append(", houseName='").append(houseName).append('\'');
-        sb.append(", houseColor='").append(houseColor).append('\'');
-        sb.append(", createDate='").append(createDate).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
-    public Map<String, Object> convertToMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("houseName", houseName);
-        map.put("houseColor", houseColor);
-        map.put("createDate", createDate);
-        return map;
+        return "House{" +
+                "id=" + id +
+                ", houseName='" + houseName + '\'' +
+                ", houseColor=" + houseColor +
+                ", createDate=" + createDate +
+                '}';
     }
 }

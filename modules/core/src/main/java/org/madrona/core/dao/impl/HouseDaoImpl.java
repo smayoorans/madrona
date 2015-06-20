@@ -20,4 +20,9 @@ public class HouseDaoImpl extends AbstractDAO<House> implements HouseDao {
     public House get(long id) {
         return super.getById(id);
     }
+
+    @Override
+    public boolean update(House house) {
+        return super.update(house);
+    }
 }

@@ -29,6 +29,7 @@
             <list>
                 <value>com.madrona.common.model.Student</value>
                 <value>com.madrona.common.model.Address</value>
+                <value>com.madrona.common.model.House</value>
             </list>
         </property>
 

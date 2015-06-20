@@ -1,11 +1,10 @@
 package org.madrona.core.service;
 
-import com.madrona.common.model.Address;
-import com.madrona.common.model.Gender;
 import com.madrona.common.model.House;
-import com.madrona.common.model.Student;
+import com.madrona.common.model.enumz.HouseColor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,27 +18,27 @@ import java.util.Date;
 @ContextConfiguration(locations = { "/applicationContext.xml"})
 public class HouseServiceTest {
 
-    private static final Logger logger = LogManager.getLogger(HouseServiceTest.class);
-
     @Autowired
     private HouseService houseService;
 
     @Test
     public void testHouseInsert() throws Exception {
-
-        logger.debug("Running Test Case [testHouseInsert]");
-
         House house = new House();
-        house.setHouseName("Barathy");
-        house.setHouseColor("Blue");
-        house.setCreateDate(new Date());
-
-
+        house.setHouseName("Eagle");
+        house.setHouseColor(HouseColor.BLUE);
+        house.setCreateDate(LocalDate.now());
         houseService.insert(house);
+        Thread.sleep(1000);
 
 
-        System.out.println("house " + house);
+        House house1 = houseService.get(1);
+        Assert.assertEquals("Eagle", house1.getHouseName());
+
+        Thread.sleep(2000);
+
+
     }
+
 
 
 }

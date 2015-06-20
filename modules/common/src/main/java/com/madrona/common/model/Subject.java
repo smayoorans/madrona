@@ -3,9 +3,10 @@ package com.madrona.common.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Subject {
+public class Subject implements Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
@@ -13,9 +14,6 @@ public class Subject {
     @GeneratedValue
     private int subjectId;
     private String subjectName;
-
-    public Subject() {
-    }
 
     public Subject(String subjectName) {
         this.subjectName = subjectName;

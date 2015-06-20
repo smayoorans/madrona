@@ -1,5 +1,7 @@
 package com.madrona.common.model;
 
+import com.madrona.common.model.enumz.Gender;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;

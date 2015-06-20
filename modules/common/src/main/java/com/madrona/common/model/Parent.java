@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Entity
-public class Parent implements RequestMessage, Serializable {
+public class Parent implements Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
@@ -61,26 +61,14 @@ public class Parent implements RequestMessage, Serializable {
         this.motherJob = motherJob;
     }
 
-
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Parent{");
-        sb.append("id=").append(id);
-        sb.append(", fatherName='").append(fatherName).append('\'');
-        sb.append(", fatherJob='").append(fatherJob).append('\'');
-        sb.append(", motherName='").append(motherName).append('\'');
-        sb.append(", motherJob='").append(motherJob).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
-
-    @Override
-    public Map<String, Object> convertToMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("fatherName", fatherName);
-        map.put("fatherJob", fatherJob);
-        map.put("motherName", motherName);
-        map.put("motherJob", motherJob);
-        return map;
+        return "Parent{" +
+                "id=" + id +
+                ", fatherName='" + fatherName + '\'' +
+                ", fatherJob='" + fatherJob + '\'' +
+                ", motherName='" + motherName + '\'' +
+                ", motherJob='" + motherJob + '\'' +
+                '}';
     }
 }

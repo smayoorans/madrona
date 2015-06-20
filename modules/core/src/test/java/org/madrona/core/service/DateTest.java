@@ -11,7 +11,6 @@ public class DateTest {
 
     private static final Logger logger = LogManager.getLogger(DateTest.class);
 
-
     @Test
     public void testLocalDateParse() throws Exception {
         LocalDate date = LocalDate.parse("1987-07-02");

@@ -1,5 +1,8 @@
 package org.madrona.core.dao.impl;
 
+import com.madrona.common.model.House;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -13,14 +16,16 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Generic class for all Data Access Object Operations
+ * Abstract class for all Data Access Object Operations
  *
- * @author Mayooran
  * @param <T>
+ * @author Mayooran
  */
 
 @Repository
 public abstract class AbstractDAO<T extends Serializable> implements Serializable {
+
+    private static final Logger logger = LogManager.getLogger(AbstractDAO.class);
 
     @Autowired
     protected SessionFactory sessionFactory;
@@ -37,52 +42,70 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
         sessionFactory.getCurrentSession().close();
     }
 
-    public Session getHibernateSession() {
+    private Session getHibernateSession() {
         return sessionFactory.openSession();
     }
 
     @Transactional
-    public T getById(long id) {
-        String queryString = "from " + clazz.getSimpleName() + " where id = :id";
-        Query query = getHibernateSession().createQuery(queryString);
-        query.setLong("id", id);
-        object = (T) query.uniqueResult();
-        return object;
-    }
-
-    @Transactional
-    protected int deleteById(int id) {
-        String queryString = "delete " + clazz.getSimpleName() + " where id = :id";
-        Query query = getHibernateSession().createQuery(queryString);
-        query.setInteger("id", id);
-        return query.executeUpdate();
-    }
-
-    @Transactional
-    public boolean insert(T object) {
+    protected boolean insert(T object) {
+        logger.info("Inserting new {} to database [{}]", clazz.getSimpleName(), object);
         try {
             getHibernateSession().save(object);
+            logger.info("Successfully inserted new {} to database [{}]", clazz.getSimpleName(), object);
             return true;
         } catch (HibernateException ex) {
-
+            logger.error("Error occurred while inserting {} information  [{}], [{}] ", clazz.getSimpleName(), object, ex);
             return false;
         }
     }
+
+    @Transactional
+    protected T getById(long id) {
+        logger.info("Retrieving {} details for id [{}]", clazz.getSimpleName(), id);
+        try {
+            String queryString = "from " + clazz.getSimpleName() + " where id = :id";
+            Query query = getHibernateSession().createQuery(queryString);
+            query.setLong("id", id);
+            object = (T) query.uniqueResult();
+            return object;
+        } catch (HibernateException ex) {
+            logger.error("Error occurred while retrieving {} details for id [{}], [{}]", clazz.getSimpleName(), id, ex);
+            return null;
+        }
+    }
+
+    @Transactional
+    protected int deleteById(long id) {
+        logger.info("Deleting {} information for the database for student id [{}]",clazz.getSimpleName(), id);
+        try{
+            String queryString = "delete " + clazz.getSimpleName() + " where id = :id";
+            Query query = getHibernateSession().createQuery(queryString);
+            query.setLong("id", id);
+            return query.executeUpdate();
+        } catch (HibernateException ex) {
+            logger.error("Error occurred while retrieving {} details for student id [{}], [{}]",clazz.getSimpleName(), id, ex);
+            return 0;
+        }
+
+    }
+
 
     @Transactional
     protected boolean update(T object) {
+        logger.info("Updating {} information with new information of [{}]", clazz.getSimpleName(), object);
         try {
-            getHibernateSession().saveOrUpdate(object);
+            getHibernateSession().merge(object);
             return true;
         } catch (HibernateException ex) {
+            logger.error("Error occurred while updating the {} information [{}], [{}] ",clazz.getSimpleName(), object, ex);
             return false;
         }
     }
 
     @Transactional
-    protected List getAllRecords() {
+    protected List<T> getAll() {
         String queryString = "from " + clazz.getSimpleName();
         Query query = getHibernateSession().createQuery(queryString);
-        return query.list();
+        return (List<T>)query.list();
     }
 }

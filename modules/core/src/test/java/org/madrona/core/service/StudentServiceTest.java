@@ -1,7 +1,7 @@
 package org.madrona.core.service;
 
 import com.madrona.common.model.Address;
-import com.madrona.common.model.Gender;
+import com.madrona.common.model.enumz.Gender;
 import com.madrona.common.model.Student;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -70,6 +70,11 @@ public class StudentServiceTest {
 
         Student student = studentService.getStudent(1);
 
+        Thread.sleep(1000);
+
+        student.setFirstName("Updated name");
+
+        studentService.update(student);
         System.out.println("Student " + student);
     }
 

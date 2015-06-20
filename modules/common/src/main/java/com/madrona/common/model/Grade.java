@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Entity
-public class Grade implements RequestMessage, Serializable {
+public class Grade implements Serializable {
 
     private static final long serialVersionUID = -6790693372846798580L;
 
@@ -19,11 +19,6 @@ public class Grade implements RequestMessage, Serializable {
     private String gradeTeacher;
 
     public Grade() {
-    }
-
-    public Grade(String gradeName, String gradeTeacher) {
-        this.gradeName = gradeName;
-        this.gradeTeacher = gradeTeacher;
     }
 
     public long getId() {
@@ -51,10 +46,11 @@ public class Grade implements RequestMessage, Serializable {
     }
 
     @Override
-    public Map<String, Object> convertToMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("gradeName", gradeName);
-        map.put("gradeTeacher", gradeTeacher);
-        return map;
+    public String toString() {
+        return "Grade{" +
+                "id=" + id +
+                ", gradeName='" + gradeName + '\'' +
+                ", gradeTeacher='" + gradeTeacher + '\'' +
+                '}';
     }
 }

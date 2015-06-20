@@ -25,6 +25,11 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     public House get(long id) {
-        return null;
+        return houseDao.get(id);
+    }
+
+    @Override
+    public boolean update(House house) {
+        return houseDao.update(house);
     }
 }

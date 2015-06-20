@@ -7,4 +7,6 @@ public interface HouseService {
     boolean insert(House house);
 
     House get(long id);
+
+    boolean update(House house);
 }

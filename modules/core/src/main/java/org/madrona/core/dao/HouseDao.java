@@ -10,4 +10,6 @@ public interface HouseDao {
     boolean insert(House house);
 
     House get(long id);
+
+    boolean update(House house);
 }
