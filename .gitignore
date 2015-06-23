@@ -15,3 +15,5 @@ release.properties
 dependency-reduced-pom.xml
 
 
+
+modules/core/src/test/resources/connection.properties

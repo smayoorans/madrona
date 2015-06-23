@@ -1,5 +1,6 @@
 package org.madrona.core.service;
 
+import org.junit.Assert;
 import org.madrona.common.Address;
 import org.madrona.common.enumz.Gender;
 import org.madrona.common.Student;
@@ -32,7 +33,6 @@ public class StudentServiceTest {
         student1.setLastName("Somasundaram");
         student1.setEmailAddress("smayoorans@gmail.com");
         student1.setGender(Gender.MALE);
-//        Default DateTimeFormatter.ISO_LOCAL_DATE
         student1.setDateOfBirth(LocalDate.parse("1987-07-02"));
         student1.setJoinedDate(LocalDate.parse("2012-10-22"));
 
@@ -42,11 +42,15 @@ public class StudentServiceTest {
         address1.setAddressLine2("T.B Jayah Mawatha");
         address1.setDistrict("Colombo");
         address1.setProvince("Western");
-        student1.setHomeAddress(address1);
+
         address1.setStudent(student1);
+
+        student1.setHomeAddress(address1);
+
+
         studentService.insert(student1);
 
-        Student student2 = new Student();
+/*        Student student2 = new Student();
         student2.setFirstName("Shanya");
         student2.setLastName("Somasundaram");
         student2.setEmailAddress("shanyas@gmail.com");
@@ -63,19 +67,22 @@ public class StudentServiceTest {
         address2.setStudent(student2);
 
         student2.setHomeAddress(address2);
-        studentService.insert(student2);
+        studentService.insert(student2);*/
 
-
-        Thread.sleep(2000);
-
-        Student student = studentService.getStudent(1);
 
         Thread.sleep(1000);
 
-        student.setFirstName("Updated name");
+        Student mayooran = studentService.getStudent(1);
 
-        studentService.update(student);
-        System.out.println("Student " + student);
+        System.out.println("mayooran---------->" + mayooran);
+        Assert.assertEquals("Western", mayooran.getHomeAddress().getProvince());
+
+/*
+        Student shanya = studentService.getStudent("emailAddress", "shanyas@gmail.com");
+        Assert.assertEquals("Shanya", shanya.getFirstName());*/
+
+        Thread.sleep(1000);
+
     }
 
 

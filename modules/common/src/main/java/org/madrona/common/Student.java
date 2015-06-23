@@ -9,41 +9,30 @@ import java.time.LocalDate;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "STUDENT")
 public class Student implements Serializable {
 
-    private static final long serialVersionUID = -6790693372846798580L;
-
     @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "STUDENT_ID", unique = true, nullable = false)
+    @GeneratedValue
+    @Column(unique = true, nullable = false)
     private long id;
 
-    @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @Column(name = "LAST_NAME")
     private String lastName;
 
-    @Column(name = "DATE_OF_BIRTH")
     private LocalDate dateOfBirth;
 
-    @Column(name = "GRADE")
     private String grade;
 
-    @Column(name = "GENDER")
     private Gender gender;
 
-    @Column(name = "EMAIL")
     private String emailAddress;
 
-    @Column(name = "MOBILE_NO")
     private String mobileNumber;
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Address homeAddress;
 
-    @Column(name = "JOINED_DATE")
     private LocalDate joinedDate;
 
     public Student() {

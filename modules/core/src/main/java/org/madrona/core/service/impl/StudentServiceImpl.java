@@ -30,6 +30,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public Student getStudent(String propertyName, Object value) {
+        return null;
+    }
+
+    @Override
     public int delete(long id) {
         return studentDao.delete(id);
     }

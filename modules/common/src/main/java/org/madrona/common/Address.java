@@ -8,11 +8,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "ADDRESS")
 public class Address implements Serializable {
 
     @Id
-    @Column(name = "STUDENT_ID", unique = true, nullable = false)
+    @Column(unique = true, nullable = false)
     @GeneratedValue(generator = "gen")
     @GenericGenerator(name = "gen", strategy = "foreign", parameters = @Parameter(name = "property", value = "student"))
     private long id;
@@ -23,7 +22,7 @@ public class Address implements Serializable {
     private String district;
     private String province;
 
-    @OneToOne
+    @OneToOne()
     @PrimaryKeyJoinColumn
     private Student student;
 

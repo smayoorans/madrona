@@ -10,6 +10,8 @@ public interface StudentDao {
 
     Student get(long studentId);
 
+    List get(String propertyName, Object value);
+
     int delete(long id);
 
     boolean update(Student student);
