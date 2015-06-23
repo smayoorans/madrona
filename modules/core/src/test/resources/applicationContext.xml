@@ -27,6 +27,7 @@
                 <value>org.madrona.common.Student</value>
                 <value>org.madrona.common.Address</value>
                 <value>org.madrona.common.House</value>
+                <value>org.madrona.common.Staff</value>
             </list>
         </property>
 
