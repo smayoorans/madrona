@@ -25,6 +25,7 @@ public class StaffServiceTest {
 
         Staff staff = new Staff.StaffBuilder("Mayooran", "Somasundaram")
                 .withCompletedDegree("Bsc")
+                .withEmailAddress("dkfn")
                 .build();
 
         staffService.insert(staff);
