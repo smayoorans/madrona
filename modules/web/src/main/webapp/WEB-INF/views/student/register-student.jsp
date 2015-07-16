@@ -39,12 +39,16 @@
                 <form role="form" method="post" action="register-action">
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      <label for="student-name">Student Name</label>
+                      <input type="text" class="form-control" id="student-name" name="student-name" placeholder="Enter Student Name">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      <label for="email-address">Email address</label>
+                      <input type="email" class="form-control" id="email-address" name="email-address" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                      <label for="mobile-number">Mobile Number</label>
+                      <input type="text" class="form-control" id="mobile-number" name="mobile-number" placeholder="Mobile Number">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputFile">File input</label>
