@@ -15,4 +15,9 @@ public class HomeController {
     public String showLoginPage(){
         return "login";
     }
+
+    @RequestMapping("/dash-board")
+    public String showDashBoard(){
+        return "dash-board";
+    }
 }
