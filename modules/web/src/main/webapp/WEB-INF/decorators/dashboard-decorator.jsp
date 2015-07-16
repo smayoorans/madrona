@@ -37,6 +37,30 @@
 
     <decorator:body/>
 
+    <!-- jQuery 2.1.4 -->
+    <script src="<c:url value="/resources/plugins/jQuery/jQuery-2.1.4.min.js"/>" type="text/javascript"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='<c:url value="/resources/plugins/fastclick/fastclick.min.js"/>' type="text/javascript"></script>
+    <!-- AdminLTE App -->
+    <script src="<c:url value="/resources/dist/js/app.min.js"/>" type="text/javascript"></script>
+    <!-- Sparkline -->
+    <script src="<c:url value="/resources/plugins/sparkline/jquery.sparkline.min.js"/>" type="text/javascript"></script>
+    <!-- jvectormap -->
+    <script src="<c:url value="/resources/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/resources/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"/>" type="text/javascript"></script>
+    <!-- SlimScroll 1.3.0 -->
+    <script src="<c:url value="/resources/plugins/slimScroll/jquery.slimscroll.min.js"/>" type="text/javascript"></script>
+    <!-- ChartJS 1.0.1 -->
+    <script src="<c:url value="/resources/plugins/chartjs/Chart.min.js"/>" type="text/javascript"></script>
+
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="<c:url value="/resources/dist/js/pages/dashboard2.js"/>" type="text/javascript"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="<c:url value="/resources/dist/js/demo.js"/>" type="text/javascript"></script>
+
 </body>
 </html>
 

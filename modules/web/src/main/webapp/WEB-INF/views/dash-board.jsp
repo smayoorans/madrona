@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AdminLTE 2 | Dashboard</title>
-
+    <title>Madrona | Dashboard</title>
   </head>
   <body>
     <div class="wrapper">
@@ -1255,28 +1254,5 @@
 
     </div><!-- ./wrapper -->
 
-    <!-- jQuery 2.1.4 -->
-    <script src="resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.2 JS -->
-    <script src="resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- FastClick -->
-    <script src='resources/plugins/fastclick/fastclick.min.js'></script>
-    <!-- AdminLTE App -->
-    <script src="resources/dist/js/app.min.js" type="text/javascript"></script>
-    <!-- Sparkline -->
-    <script src="resources/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
-    <!-- jvectormap -->
-    <script src="resources/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
-    <script src="resources/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
-    <!-- SlimScroll 1.3.0 -->
-    <script src="resources/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <!-- ChartJS 1.0.1 -->
-    <script src="resources/plugins/chartjs/Chart.min.js" type="text/javascript"></script>
-
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="resources/dist/js/pages/dashboard2.js" type="text/javascript"></script>
-
-    <!-- AdminLTE for demo purposes -->
-    <script src="resources/dist/js/demo.js" type="text/javascript"></script>
-  </body>
+      </body>
 </html>
