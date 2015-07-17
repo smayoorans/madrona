@@ -6,8 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
 @Entity
 public class Student implements Serializable {
 
@@ -16,9 +14,7 @@ public class Student implements Serializable {
     @Column(unique = true, nullable = false)
     private long id;
 
-    private String firstName;
-
-    private String lastName;
+    private String studentName;
 
     private LocalDate dateOfBirth;
 
@@ -47,21 +43,14 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setStudentName(String firstName) {
+        this.studentName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -123,8 +112,7 @@ public class Student implements Serializable {
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", firstName='" + studentName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", grade='" + grade + '\'' +
                 ", gender=" + gender +

@@ -12,8 +12,7 @@ import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -23,9 +22,33 @@ public class Starter {
     private static MsisdnGenerator msisdnGenerator = new MsisdnGenerator();
     private static TransactionIdGenerator transactionIdGenerator = new TransactionIdGenerator();
     private static SessionIdGenerator sessionIdGenerator = new SessionIdGenerator();
+    private static List<String> menuClassifications = new ArrayList<>();
+    private static List<String> menuDescriptions = new ArrayList<>();
+    private static List<String> menuCategories = new ArrayList<>();
+    private static List<String> serviceCodeList = new ArrayList<>();
 
+    private static Random random = new Random();
 
     public static void main(String[] args) throws IOException {
+
+        menuClassifications.add("Class1");
+        menuClassifications.add("Class2");
+        menuClassifications.add("Class3");
+
+        menuDescriptions.add("Menu1");
+        menuDescriptions.add("Menu2");
+        menuDescriptions.add("Menu3");
+        menuDescriptions.add("Menu4");
+
+        menuCategories.add("cat1");
+        menuCategories.add("cat2");
+        menuCategories.add("cat3");
+        menuCategories.add("cat4");
+
+        serviceCodeList.add("*123#");
+        serviceCodeList.add("*124#");
+        serviceCodeList.add("*125#");
+
         msisdnGenerator.init();
         ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(1);
         executorService.scheduleAtFixedRate(new ExecutionJob(), 0, 1, TimeUnit.MILLISECONDS);
@@ -40,14 +63,14 @@ public class Starter {
             context.setTransactionId(transactionIdGenerator.get().substring(4));
             context.setSessionId(sessionIdGenerator.get().substring(4));
 
-            context.setMenuDescription("Menu1");
-            context.setMenuClassification("C1");
+            context.setMenuDescription(getRandomList(menuDescriptions));
+            context.setMenuClassification(getRandomList(menuClassifications));
             SubscriberProfile subscriberProfile = new SubscriberProfile();
-            subscriberProfile.setCategory("cat1");
+            subscriberProfile.setCategory(getRandomList(menuCategories));
 
             context.setSubscriberProfile(subscriberProfile);
 
-            context.setServiceCode("*123#");
+            context.setServiceCode(getRandomList(serviceCodeList));
             context.setTransactionType(Context.MessageTransactionType.CONT);
 
             MessageResponse messageResponse = new MessageResponse();
@@ -59,8 +82,8 @@ public class Starter {
 
 
             context.setFinishSession(true);
-            context.setSessionEndTime(new Date());
-            context.setSessionStartTime(new Date());
+            context.setSessionEndTime(convertToDate(LocalDateTime.now().minusSeconds(randomGenerator.nextInt())));
+            context.setSessionStartTime(convertToDate(LocalDateTime.now()));
             context.setMessageResponse(messageResponse);
 
             context.setServiceCode("S101");
@@ -77,5 +100,11 @@ public class Starter {
     private static Date convertToDate(LocalDateTime ldt) {
         Instant instant = ldt.atZone(ZoneId.systemDefault()).toInstant();
         return Date.from(instant);
+    }
+
+    public static String getRandomList(List<String> list) {
+        int index = random.nextInt(list.size());
+        return list.get(index);
+
     }
 }

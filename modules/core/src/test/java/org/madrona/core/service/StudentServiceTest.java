@@ -29,9 +29,9 @@ public class StudentServiceTest {
         logger.debug("Running Test Case [testAddStudentWithAddress]");
 
         Student student1 = new Student();
-        student1.setFirstName("Mayooran");
-        student1.setLastName("Somasundaram");
+        student1.setStudentName("Mayooran");
         student1.setEmailAddress("smayoorans@gmail.com");
+
         student1.setGender(Gender.MALE);
         student1.setDateOfBirth(LocalDate.parse("1987-07-02"));
         student1.setJoinedDate(LocalDate.parse("2012-10-22"));

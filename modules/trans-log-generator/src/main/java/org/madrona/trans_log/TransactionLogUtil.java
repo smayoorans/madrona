@@ -56,7 +56,7 @@ public class TransactionLogUtil {
         }
 
         transLog.info(trans);
-        System.out.println(trans);
+//        System.out.println(trans);
     }
 
     private static StringBuilder processTransaction(Context context) {

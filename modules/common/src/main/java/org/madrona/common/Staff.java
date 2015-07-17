@@ -31,8 +31,7 @@ public class Staff implements Serializable {
 
     private final String staffStatus;
 
-
-    public Staff(StaffBuilder builder) {
+    private Staff(StaffBuilder builder) {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.gender = builder.gender;
@@ -118,6 +117,8 @@ public class Staff implements Serializable {
             this.firstName = firstName;
             this.lastName = lastName;
         }
+
+
 
         public StaffBuilder withGender(Gender gender){
             this.gender = gender;
