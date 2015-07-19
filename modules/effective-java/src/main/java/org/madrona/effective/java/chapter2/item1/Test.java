@@ -6,41 +6,11 @@ public class Test {
      * Providers Implementations go here
      */
 
-    private static Provider DEFAULT_PROVIDER = new Provider() {
-        @Override
-        public Service newService() {
-            return new Service() {
-                @Override
-                public String greeting() {
-                    return "Hello From Default Provider";
-                }
-            };
-        }
-    };
+    private static Provider DEFAULT_PROVIDER = () -> () -> "Hello From Default";
 
-    private static Provider DIALOG_PROVIDER = new Provider() {
-        @Override
-        public Service newService() {
-            return new Service() {
-                @Override
-                public String greeting() {
-                    return "Hello From Dialog";
-                }
-            };
-        }
-    };
+    private static Provider DIALOG_PROVIDER = () -> () -> "Hello From Dialog";
 
-    private static Provider MOBITEL_PROVIDER = new Provider() {
-        @Override
-        public Service newService() {
-            return new Service() {
-                @Override
-                public String greeting() {
-                    return "Hello From Mobitel";
-                }
-            };
-        }
-    };
+    private static Provider MOBITEL_PROVIDER = () -> () -> "Hello From Mobitel";
 
 
     public static void main(String[] args) {
