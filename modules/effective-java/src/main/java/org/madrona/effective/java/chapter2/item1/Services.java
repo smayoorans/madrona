@@ -16,7 +16,7 @@ public class Services {
         serviceProviders.put(name, provider);
     }
 
-    public static String newInstance(String name) {
+    public static Service newInstance(String name) {
         Provider provider = serviceProviders.get(name);
         if(provider == null){
             throw new IllegalArgumentException("No Provider Registered with name :" + name);
@@ -25,7 +25,7 @@ public class Services {
     }
 
 
-    public static String newInstance() {
+    public static Service newInstance() {
         return newInstance(DEFAULT_PROVIDER_NAME);
     }
 }

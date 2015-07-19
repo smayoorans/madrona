@@ -8,22 +8,37 @@ public class Test {
 
     private static Provider DEFAULT_PROVIDER = new Provider() {
         @Override
-        public String newService() {
-            return "Hello From Default Provider";
+        public Service newService() {
+            return new Service() {
+                @Override
+                public String greeting() {
+                    return "Hello From Default Provider";
+                }
+            };
         }
     };
 
     private static Provider DIALOG_PROVIDER = new Provider() {
         @Override
-        public String newService() {
-            return "Hello From Dialog";
+        public Service newService() {
+            return new Service() {
+                @Override
+                public String greeting() {
+                    return "Hello From Dialog";
+                }
+            };
         }
     };
 
     private static Provider MOBITEL_PROVIDER = new Provider() {
         @Override
-        public String newService() {
-            return "Hello From Mobitel";
+        public Service newService() {
+            return new Service() {
+                @Override
+                public String greeting() {
+                    return "Hello From Mobitel";
+                }
+            };
         }
     };
 
@@ -37,11 +52,13 @@ public class Test {
 
 
         //Clients would executes there lines
-        String client1 = Services.newInstance("dialog");
-        String client2 = Services.newInstance("mobitel");
-        String client3 = Services.newInstance();
+        Service client1 = Services.newInstance("dialog");
+        Service client2 = Services.newInstance("mobitel");
+        Service client3 = Services.newInstance();
 
-        System.out.println("Client 1 : " + client1 + " ,  " + "Client 2 : " + client2 + " ,  " + "Client 3 : " + client3);
+        System.out.println("Client 1 : " + client1.greeting() + " ,  "
+                + "Client 2 : " + client2.greeting() + " ,  "
+                + "Client 3 : " + client3.greeting());
 
     }
 }
