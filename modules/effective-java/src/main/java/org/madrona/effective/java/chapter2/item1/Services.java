@@ -5,14 +5,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class Services {
 
-    private static Map<String, String> serviceProviders = new ConcurrentHashMap<>();
+    private static Map<String, Provider> serviceProviders = new ConcurrentHashMap<>();
 
-    public static void register(String name, String providerService) {
+    public static void register(String name, Provider providerService) {
         serviceProviders.put(name, providerService);
     }
 
     public static String newInstance(String name) {
-        String providerService = serviceProviders.get(name);
-        return providerService;
+        Provider providerService = serviceProviders.get(name);
+        return providerService.newService();
     }
 }
