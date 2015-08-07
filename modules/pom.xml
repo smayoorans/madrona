@@ -19,6 +19,7 @@
         <module>trans-log-generator</module>
         <module>design</module>
         <module>effective-java</module>
+        <module>java-prser</module>
     </modules>
 
 </project>
