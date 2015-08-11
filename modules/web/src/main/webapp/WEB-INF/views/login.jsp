@@ -1,81 +1,77 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>AdminLTE 2 | Log in</title>
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- Bootstrap 3.3.4 -->
-    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <!-- iCheck -->
-    <link href="resources/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+<head>
+    <title><fmt:message key="login.member.login"/></title>
+</head>
+<body>
+<fmt:bundle basename="messages">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body class="login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
-      </div><!-- /.login-logo -->
-      <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-        <form action="../../index2.html" method="post">
-          <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email"/>
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">    
-              <div class="checkbox icheck">
-                <label>
-                  <input type="checkbox"> Remember Me
-                </label>
-              </div>                        
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-            </div><!-- /.col -->
-          </div>
-        </form>
+    <c:if test="${not empty param.statusCode}">
+        <div class="control-group">
+            <div class="controls">
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Message : </strong> ${param.statusCode}
+                </div>
+            </div>
+        </div>
+        <!-- /control-group -->
+    </c:if>
 
-        <div class="social-auth-links text-center">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-          <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
-        </div><!-- /.social-auth-links -->
+    <div class="account-container">
+        <div class="content clearfix">
 
-        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
+            <form method="POST" action="<c:url value="/j_spring_security_check"/>">
+                <h1><fmt:message key="login.member.login"/></h1>
 
-      </div><!-- /.login-box-body -->
-    </div><!-- /.login-box -->
+                <div class="login-fields">
 
-    <!-- jQuery 2.1.4 -->
-    <script src="resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.2 JS -->
-    <script src="resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- iCheck -->
-    <script src="resources/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
-      });
-    </script>
-  </body>
+                    <p><fmt:message key="login.please.provide.your.details"/></p>
+
+                    <div class="field">
+                        <label for="username"><fmt:message key="login.username"/></label>
+                        <input type="text" id="username" name="j_username" placeholder="Username"
+                               class="login username-field"/>
+                    </div>
+                    <!-- /username field -->
+
+                    <div class="field">
+                        <label for="password"><fmt:message key="login.password"/></label>
+                        <input type="password" id="password" name="j_password" placeholder="Password"
+                               class="login password-field"/>
+                    </div>
+                    <!-- /password field -->
+
+                </div>
+                <!-- /login-fields -->
+
+                <div class="login-actions">
+
+                    <span class="login-checkbox">
+                        <input name="_spring_security_remember_me" type="checkbox" class="field login-checkbox"/>
+                        <label class="choice"><fmt:message key="login.keep.me.signed.in"/></label>
+                    </span>
+
+                    <button type="submit" class="button btn btn-success btn-large"><fmt:message
+                            key="login.login"/></button>
+
+                </div>
+                <!-- login-actions -->
+
+            </form>
+
+        </div>
+        <!-- /content -->
+
+    </div>
+    <!-- /account-container -->
+
+    <div class="login-extra">
+        <a href="#"><fmt:message key="login.reset.password"/></a>
+    </div>
+    <!-- /login-extra -->
+
+</fmt:bundle>
+</body>
 </html>

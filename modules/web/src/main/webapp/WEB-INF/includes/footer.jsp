@@ -1,11 +1,30 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<html>
+<fmt:bundle basename="messages">
+    <head>
+    </head>
+    <body>
+    <div class="footer">
+        <div class="footer-inner">
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <fmt:message key="copy.right.year"/>
+                        <a href="http://www.smayoorans.blogspot.com">
+                            <fmt:message key="copy.right.owner"/>
+                        </a>
+                        <fmt:message key="copy.right.message"/>
+                    </div>
+                    <!-- /span12 -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /footer-inner -->
+    </div>
+    <!-- /footer -->
 
-
-<footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <b>Version</b> 2.0
-  </div>
-  <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-</footer>
-
+    </body>
+</fmt:bundle>
+</html>
