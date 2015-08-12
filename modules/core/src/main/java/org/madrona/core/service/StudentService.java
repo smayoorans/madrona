@@ -6,20 +6,21 @@ import org.madrona.common.Student;
 import java.util.List;
 
 /**
+ * <p>Student Services Interface</p>
  * @author Mayooran
  */
 
 public interface StudentService {
 
-    boolean insert(Student student);
+    boolean save(Student student);
 
-    Student getStudent(long studentId);
+    Student get(long studentId);
 
-    Student getStudent(String propertyName, Object value);
+    Student get(String propertyName, Object value);
 
     boolean update(Student student);
 
     int delete(long id);
 
-    List<Student> getAllStudents();
+    List<Student> getAll();
 }

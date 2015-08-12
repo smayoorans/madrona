@@ -5,11 +5,12 @@ import org.madrona.common.Staff;
 
 
 /**
+ * <p>Staff service interface</p>
  * @author Mayooran
  */
 
 public interface StaffService {
 
-    boolean insert(Staff staff);
+    boolean save(Staff staff);
 
 }

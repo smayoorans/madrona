@@ -12,8 +12,8 @@ public class HouseDaoImpl extends AbstractDAO<House> implements HouseDao {
     }
 
     @Override
-    public boolean insert(House house) {
-        return super.insert(house);
+    public boolean save(House house) {
+        return super.save(house);
     }
 
     @Override

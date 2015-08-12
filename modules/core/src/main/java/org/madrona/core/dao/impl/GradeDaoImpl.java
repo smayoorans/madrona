@@ -12,8 +12,8 @@ public class GradeDaoImpl extends AbstractDAO<Grade> implements GradeDao {
     }
 
     @Override
-    public boolean insert(Grade grade) {
-        return super.insert(grade);
+    public boolean save(Grade grade) {
+        return super.save(grade);
     }
 
     @Override

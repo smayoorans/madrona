@@ -7,7 +7,7 @@ import org.madrona.common.House;
  */
 public interface HouseService {
 
-    boolean insert(House house);
+    boolean save(House house);
 
     House get(long id);
 

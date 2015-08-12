@@ -45,8 +45,7 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
         return sessionFactory.openSession();
     }
 
-    @Transactional
-    protected boolean insert(T object) {
+    protected boolean save(T object) {
         logger.info("Inserting new {} to database [{}]", clazz.getSimpleName(), object);
         try {
             getHibernateSession().save(object);
@@ -58,7 +57,6 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
         }
     }
 
-    @Transactional
     protected T getById(long id) {
         logger.info("Retrieving {} details for id [{}]", clazz.getSimpleName(), id);
         try {
@@ -73,7 +71,6 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
         }
     }
 
-    @Transactional
     protected int deleteById(long id) {
         logger.info("Deleting {} information for the database for student id [{}]",clazz.getSimpleName(), id);
         try{
@@ -89,7 +86,6 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
     }
 
 
-    @Transactional
     protected boolean update(T object) {
         logger.info("Updating {} information with new information of [{}]", clazz.getSimpleName(), object);
         try {
@@ -101,7 +97,6 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
         }
     }
 
-    @Transactional
     protected List<T> getAll() {
         String queryString = "from " + clazz.getSimpleName();
         Query query = getHibernateSession().createQuery(queryString);

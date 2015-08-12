@@ -8,44 +8,54 @@ import org.madrona.core.dao.StudentDao;
 import org.madrona.core.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * <p>Student Service Implementation</p>
+ */
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    private static final Logger logger = LogManager.getLogger(StudentServiceImpl.class);
+    private static final Logger LOGGER = LogManager.getLogger(StudentServiceImpl.class);
 
     @Autowired
     private StudentDao studentDao;
 
     @Override
-    public boolean insert(Student student) {
-        return studentDao.insert(student);
+    @Transactional
+    public boolean save(Student student) {
+        return studentDao.save(student);
     }
 
     @Override
-    public Student getStudent(long studentId) {
+    @Transactional
+    public Student get(long studentId) {
         return studentDao.get(studentId);
     }
 
     @Override
-    public Student getStudent(String propertyName, Object value) {
+    @Transactional
+    public Student get(String propertyName, Object value) {
         return null;
     }
 
     @Override
+    @Transactional
     public int delete(long id) {
         return studentDao.delete(id);
     }
 
     @Override
+    @Transactional
     public boolean update(Student student) {
         return studentDao.update(student);
     }
 
     @Override
-    public List<Student> getAllStudents() {
+    @Transactional
+    public List<Student> getAll() {
         return studentDao.getAll();
     }
 }

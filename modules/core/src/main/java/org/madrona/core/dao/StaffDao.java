@@ -5,7 +5,7 @@ import org.madrona.common.Staff;
 
 public interface StaffDao {
 
-    boolean insert(Staff staff);
+    boolean save(Staff staff);
 
 }
 

@@ -8,7 +8,13 @@ import org.madrona.core.dao.StaffDao;
 import org.madrona.core.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * <p>Staff Service implementation</p>
+ *
+ * @author mayooran
+ */
 @Service
 public class StaffServiceImpl implements StaffService {
 
@@ -18,8 +24,9 @@ public class StaffServiceImpl implements StaffService {
     private StaffDao staffDao;
 
     @Override
-    public boolean insert(Staff staff) {
-        return staffDao.insert(staff);
+    @Transactional
+    public boolean save(Staff staff) {
+        return staffDao.save(staff);
     }
 
 }

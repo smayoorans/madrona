@@ -1,5 +1,6 @@
 package org.madrona.common;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +15,9 @@ public class Grade implements Serializable {
 
     @Id
     @GeneratedValue
+    @Column(unique = true, nullable = false)
     private long id;
+
     private String gradeName;
     private String gradeTeacher;
 

@@ -36,8 +36,7 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    @Transactional
-    public boolean insert(Student student) {
+    public boolean save(Student student) {
         logger.info("Inserting new student to database [{}]", student);
         try {
             getHibernateSession().save(student);
@@ -49,7 +48,6 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    @Transactional
     public Student get(long studentId) {
         logger.info("Retrieving student details for student id [{}]", studentId);
         try {
@@ -76,7 +74,6 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    @Transactional
     public int delete(long id) {
         logger.info("Deleting student information for the database for student id [{}]", id);
         try {
@@ -91,7 +88,6 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    @Transactional
     public boolean update(Student student) {
         logger.info("Updating student information with new information of [{}]", student);
         try {
@@ -104,7 +100,6 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    @Transactional
     public List<Student> getAll() {
         String queryString = "from Student";
         Query query = getHibernateSession().createQuery(queryString);

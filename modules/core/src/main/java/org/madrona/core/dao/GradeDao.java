@@ -7,7 +7,7 @@ import org.madrona.common.Grade;
  */
 public interface GradeDao {
 
-    boolean insert(Grade grade);
+    boolean save(Grade grade);
 
     Grade get(long id);
 }

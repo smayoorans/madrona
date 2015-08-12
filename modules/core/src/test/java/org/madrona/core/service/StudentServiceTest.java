@@ -1,13 +1,13 @@
 package org.madrona.core.service;
 
-import org.junit.Assert;
-import org.madrona.common.Address;
-import org.madrona.common.enumz.Gender;
-import org.madrona.common.Student;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.madrona.common.Address;
+import org.madrona.common.Student;
+import org.madrona.common.enumz.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.time.LocalDate;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/applicationContext.xml"})
+@ContextConfiguration(locations = {"/applicationContext.xml"})
 public class StudentServiceTest {
 
     private static final Logger logger = LogManager.getLogger(StudentServiceTest.class);
@@ -24,66 +24,34 @@ public class StudentServiceTest {
     private StudentService studentService;
 
     @Test
-    public void testAddStudentWithAddress() throws Exception {
+    public void testSaveStudentWithAddress() throws Exception {
 
-        logger.debug("Running Test Case [testAddStudentWithAddress]");
+        logger.debug("Running Test Case [testSaveStudentWithAddress]");
 
-        Student student1 = new Student();
-        student1.setStudentName("Mayooran");
-        student1.setEmailAddress("smayoorans@gmail.com");
+        Student mayooran = new Student();
+        mayooran.setStudentName("Mayooran");
+        mayooran.setEmailAddress("smayoorans@gmail.com");
 
-        student1.setGender(Gender.MALE);
-        student1.setDateOfBirth(LocalDate.parse("1987-07-02"));
-        student1.setJoinedDate(LocalDate.parse("2012-10-22"));
+        mayooran.setGender(Gender.MALE);
+        mayooran.setDateOfBirth(LocalDate.parse("1987-07-02"));
+        mayooran.setJoinedDate(LocalDate.parse("2012-10-22"));
 
-        Address address1 = new Address();
-        address1.setHouseNumber("No 320");
-        address1.setAddressLine1("2nd Floor");
-        address1.setAddressLine2("T.B Jayah Mawatha");
-        address1.setDistrict("Colombo");
-        address1.setProvince("Western");
+        Address address = new Address();
+        address.setHouseNumber("No 320");
+        address.setAddressLine1("2nd Floor");
+        address.setAddressLine2("T.B Jayah Mawatha");
+        address.setDistrict("Colombo");
+        address.setProvince("Western");
+        address.setStudent(mayooran);
+        mayooran.setHomeAddress(address);
+        boolean isSaved = studentService.save(mayooran);
 
-        address1.setStudent(student1);
-
-        student1.setHomeAddress(address1);
-
-
-        studentService.insert(student1);
-
-/*        Student student2 = new Student();
-        student2.setFirstName("Shanya");
-        student2.setLastName("Somasundaram");
-        student2.setEmailAddress("shanyas@gmail.com");
-        student2.setGender(Gender.FEMALE);
-        student2.setDateOfBirth(LocalDate.parse("1991-11-11"));
-        student2.setJoinedDate(LocalDate.parse("2012-02-23"));
-
-        Address address2 = new Address();
-        address2.setHouseNumber("No 2/3");
-        address2.setAddressLine1("Ward No 7");
-        address2.setAddressLine2("Velanai West");
-        address2.setDistrict("Jaffna");
-        address2.setProvince("Northern");
-        address2.setStudent(student2);
-
-        student2.setHomeAddress(address2);
-        studentService.insert(student2);*/
-
-
+        Assert.assertEquals(true, isSaved);
         Thread.sleep(1000);
 
-        Student mayooran = studentService.getStudent(1);
-
-        System.out.println("mayooran---------->" + mayooran);
         Assert.assertEquals("Western", mayooran.getHomeAddress().getProvince());
 
-/*
-        Student shanya = studentService.getStudent("emailAddress", "shanyas@gmail.com");
-        Assert.assertEquals("Shanya", shanya.getFirstName());*/
-
-        Thread.sleep(1000);
-
+        Student student = studentService.get(1);
+        Assert.assertNotNull(student);
     }
-
-
 }

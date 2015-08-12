@@ -2,6 +2,7 @@ package org.madrona.core.service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.madrona.common.Staff;
@@ -19,17 +20,18 @@ public class StaffServiceTest {
     private StaffService staffService;
 
     @Test
-    public void testAddStaff() throws Exception {
+    public void testSaveStaff() throws Exception {
 
-        logger.debug("Running Test Case [testAddStudentWithAddress]");
+        logger.debug("Running Test Case [testSaveStaff]");
 
         Staff staff = new Staff.StaffBuilder("Mayooran", "Somasundaram")
                 .withCompletedDegree("Bsc")
-                .withEmailAddress("dkfn")
+                .withEmailAddress("smayoorans@gmail.com")
                 .build();
 
-        staffService.insert(staff);
+        boolean isSaved = staffService.save(staff);
         Thread.sleep(1000);
+        Assert.assertEquals(true, isSaved);
 
     }
 

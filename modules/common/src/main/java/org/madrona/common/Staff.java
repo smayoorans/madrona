@@ -2,6 +2,7 @@ package org.madrona.common;
 
 import org.madrona.common.enumz.Gender;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,8 @@ public class Staff implements Serializable {
 
     @Id
     @GeneratedValue
-    private int staffId;
+    @Column(unique = true, nullable = false)
+    private long id;
 
     private final String firstName;
 
@@ -42,8 +44,8 @@ public class Staff implements Serializable {
         this.staffStatus = builder.staffStatus;
     }
 
-    public int getStaffId() {
-        return staffId;
+    public long getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -81,7 +83,7 @@ public class Staff implements Serializable {
     @Override
     public String toString() {
         return "Staff{" +
-                "staffId=" + staffId +
+                "staffId=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender=" + gender +
@@ -95,7 +97,7 @@ public class Staff implements Serializable {
 
     public static class StaffBuilder {
 
-        private int staffId;
+        private long staffId;
 
         private final String firstName;
 

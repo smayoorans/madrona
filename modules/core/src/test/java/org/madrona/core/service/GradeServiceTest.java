@@ -1,5 +1,6 @@
 package org.madrona.core.service;
 
+import org.junit.Assert;
 import org.madrona.common.Grade;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,8 +29,9 @@ public class GradeServiceTest {
         grade.setGradeName("2GD");
         grade.setGradeTeacher("Charles Sir");
 
-        gradeService.insert(grade);
-        System.out.println("Grade  " + grade);
+        boolean isSaved = gradeService.save(grade);
+
+        Assert.assertEquals(true, isSaved);
     }
 
 

@@ -20,6 +20,7 @@
         <property name="packagesToScan">
             <array>
                 <value>org.madrona.common</value>
+                <value>org.madrona.core</value>
             </array>
         </property>
         <property name="annotatedClasses">

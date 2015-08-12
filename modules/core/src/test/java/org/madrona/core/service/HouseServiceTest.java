@@ -19,23 +19,19 @@ public class HouseServiceTest {
     private HouseService houseService;
 
     @Test
-    public void testHouseInsert() throws Exception {
+    public void testSaveHouse() throws Exception {
         House house = new House();
         house.setHouseName("Eagle");
         house.setHouseColor(HouseColor.BLUE);
         house.setCreateDate(LocalDate.now());
-        houseService.insert(house);
-        Thread.sleep(1000);
 
+        boolean isSaved = houseService.save(house);
+        Thread.sleep(1000);
+        Assert.assertEquals(true, isSaved);
 
         House house1 = houseService.get(1);
+        Thread.sleep(1000);
         Assert.assertEquals("Eagle", house1.getHouseName());
 
-        Thread.sleep(2000);
-
-
     }
-
-
-
 }

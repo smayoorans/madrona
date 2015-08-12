@@ -4,9 +4,13 @@ import org.madrona.common.Student;
 
 import java.util.List;
 
+/**
+ * Student repository interface
+ * @author mayooran
+ */
 public interface StudentDao {
 
-    boolean insert(Student student);
+    boolean save(Student student);
 
     Student get(long studentId);
 

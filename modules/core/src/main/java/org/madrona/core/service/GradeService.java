@@ -10,7 +10,7 @@ import org.madrona.common.Grade;
 
 public interface GradeService {
 
-    boolean insert(Grade grade);
+    boolean save(Grade grade);
 
     Grade get(long id);
 }
