@@ -4,9 +4,10 @@
 
 <html>
 <head>
-
+    <title>Add New Student</title>
 </head>
 <body>
+<jsp:useBean id="genderBean" class="org.madrona.common.bean.GenderBean"/>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,23 +42,25 @@
 
                             <div class="form-group">
                                 <label for="studentName">Student Name</label>
-                                <form:input type="email" class="form-control" id="studentName" placeholder="Enter Name"
+                                <form:input type="text" class="form-control" id="studentName"
+                                            placeholder="Enter Student Name"
                                             path="studentName"/>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                       placeholder="Password">
+                                <label for="grade">Grade</label>
+                                <form:input type="text" class="form-control" id="grade"
+                                       placeholder="Enter Grade" path="grade"/>
                             </div>
 
                             <!-- select -->
                             <div class="form-group">
                                 <label for="gender">Gender</label>
-                                <select id="gender" class="form-control">
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
+                                <form:select id="gender" class="form-control" path="gender">
+                                    <c:forEach items="${genderBean.values}" var="state">
+                                        <form:option value="${state}">${state}</form:option>
+                                    </c:forEach>
+                                </form:select>
                             </div>
                         </div>
                         <!-- /.box-body -->
@@ -79,12 +82,12 @@
 
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="text" class="form-control" placeholder="Enter Email"/>
+                                <form:input type="text" class="form-control" placeholder="Enter Email" path="emailAddress"/>
                             </div>
 
                             <div class="form-group">
                                 <label>Phone Number</label>
-                                <input type="text" class="form-control" placeholder="Enter Phone Number"/>
+                                <form:input type="text" class="form-control" placeholder="Enter Phone Number" path="mobileNumber"/>
                             </div>
 
                             <!-- textarea -->
@@ -113,8 +116,6 @@
                     </div>
                 </div>
             </div>
-
-
         </form:form>
     </section>
     <!-- /.content -->
