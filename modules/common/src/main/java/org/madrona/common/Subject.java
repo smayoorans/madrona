@@ -1,37 +1,28 @@
 package org.madrona.common;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.Table;
 
 @Entity
-public class Subject implements Serializable {
+@Table(name = "subject")
+public class Subject extends BaseEntity {
 
-    private static final long serialVersionUID = -6790693372846798580L;
+    @Column(name = "name")
+    private String name;
 
-    @Id
-    @GeneratedValue
-    private int subjectId;
-    private String subjectName;
-
-    public Subject(String subjectName) {
-        this.subjectName = subjectName;
+    public String getName() {
+        return name;
     }
 
-    public int getSubjectId() {
-        return subjectId;
+    public void setName(String subjectName) {
+        this.name = subjectName;
     }
 
-    public void setSubjectId(int subjectId) {
-        this.subjectId = subjectId;
-    }
-
-    public String getSubjectName() {
-        return subjectName;
-    }
-
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

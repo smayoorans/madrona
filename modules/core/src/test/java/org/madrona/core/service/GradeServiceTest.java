@@ -26,7 +26,7 @@ public class GradeServiceTest {
         logger.debug("Running Test Case [testHouseInsert]");
 
         Grade grade = new Grade();
-        grade.setGradeName("2GD");
+        grade.setName("2GD");
         grade.setGradeTeacher("Charles Sir");
 
         boolean isSaved = gradeService.save(grade);

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "address")
 public class Address implements Serializable {
 
     @Id
@@ -17,9 +18,13 @@ public class Address implements Serializable {
     private long id;
 
     private String houseNumber;
+
     private String addressLine1;
+
     private String addressLine2;
+
     private String district;
+
     private String province;
 
     @OneToOne()

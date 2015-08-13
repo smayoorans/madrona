@@ -2,63 +2,41 @@ package org.madrona.common;
 
 import org.madrona.common.enumz.HouseColor;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
-import java.time.LocalDate;
+import javax.persistence.Table;
 
 @Entity
-public class House implements Serializable {
+@Table(name = "house")
+public class House extends BaseEntity {
 
-    private static final long serialVersionUID = -6790693372846798580L;
+    @Column(name = "name")
+    private String name;
 
-    @Id
-    @GeneratedValue
-    private int id;
-    private String houseName;
-    private HouseColor houseColor;
-    private LocalDate createDate;
+    @Column(name = "color")
+    private HouseColor color;
 
-    public int getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getHouseName() {
-        return houseName;
+    public HouseColor getColor() {
+        return color;
     }
 
-    public void setHouseName(String houseName) {
-        this.houseName = houseName;
-    }
-
-    public HouseColor getHouseColor() {
-        return houseColor;
-    }
-
-    public void setHouseColor(HouseColor houseColor) {
-        this.houseColor = houseColor;
-    }
-
-    public LocalDate getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(LocalDate createDate) {
-        this.createDate = createDate;
+    public void setColor(HouseColor color) {
+        this.color = color;
     }
 
     @Override
     public String toString() {
         return "House{" +
-                "id=" + id +
-                ", houseName='" + houseName + '\'' +
-                ", houseColor=" + houseColor +
-                ", createDate=" + createDate +
+                "name='" + name + '\'' +
+                ", color=" + color +
                 '}';
     }
 }

@@ -2,36 +2,33 @@ package org.madrona.common;
 
 import org.madrona.common.enumz.Gender;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
-public class Staff implements Serializable {
+@Table(name = "staff")
+public class Staff extends BaseEntity {
 
-    @Id
-    @GeneratedValue
-    @Column(unique = true, nullable = false)
-    private long id;
 
-    private final String firstName;
+    private String firstName;
 
-    private final String lastName;
+    private String lastName;
 
-    private final Gender gender;
+    private Gender gender;
 
-    private final LocalDate dateOfBirth;
+    private Date dateOfBirth;
 
-    private final String emailAddress;
+    private String emailAddress;
 
-    private final String mobile;
+    private String mobile;
 
-    private final String completedDegree;
+    private String completedDegree;
 
-    private final String staffStatus;
+    private String staffStatus;
+
+    protected Staff() { }
 
     private Staff(StaffBuilder builder) {
         this.firstName = builder.firstName;
@@ -42,10 +39,6 @@ public class Staff implements Serializable {
         this.mobile = builder.mobile;
         this.completedDegree = builder.completedDegree;
         this.staffStatus = builder.staffStatus;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getFirstName() {
@@ -60,7 +53,7 @@ public class Staff implements Serializable {
         return gender;
     }
 
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -97,15 +90,13 @@ public class Staff implements Serializable {
 
     public static class StaffBuilder {
 
-        private long staffId;
-
         private final String firstName;
 
         private final String lastName;
 
         private Gender gender;
 
-        private LocalDate dateOfBirth;
+        private Date dateOfBirth;
 
         private String emailAddress;
 
@@ -120,15 +111,13 @@ public class Staff implements Serializable {
             this.lastName = lastName;
         }
 
-
-
         public StaffBuilder withGender(Gender gender){
             this.gender = gender;
             return this;
         }
 
-        public StaffBuilder withDateOfBirth(LocalDate localDate){
-            this.dateOfBirth = localDate;
+        public StaffBuilder withDateOfBirth(Date dateOfBirth){
+            this.dateOfBirth = dateOfBirth;
             return this;
         }
 

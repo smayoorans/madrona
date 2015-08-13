@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/applicationContext.xml"})
@@ -21,9 +21,8 @@ public class HouseServiceTest {
     @Test
     public void testSaveHouse() throws Exception {
         House house = new House();
-        house.setHouseName("Eagle");
-        house.setHouseColor(HouseColor.BLUE);
-        house.setCreateDate(LocalDate.now());
+        house.setName("Eagle");
+        house.setColor(HouseColor.BLUE);
 
         boolean isSaved = houseService.save(house);
         Thread.sleep(1000);
@@ -31,7 +30,7 @@ public class HouseServiceTest {
 
         House house1 = houseService.get(1);
         Thread.sleep(1000);
-        Assert.assertEquals("Eagle", house1.getHouseName());
+        Assert.assertEquals("Eagle", house1.getName());
 
     }
 }

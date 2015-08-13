@@ -1,43 +1,27 @@
 package org.madrona.common;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.*;
+
 
 @Entity
-public class Grade implements Serializable {
+@Table(name = "grade")
+public class Grade extends BaseEntity {
 
-    private static final long serialVersionUID = -6790693372846798580L;
+    @Column(name = "name")
+    private String name;
 
-    @Id
-    @GeneratedValue
-    @Column(unique = true, nullable = false)
-    private long id;
-
-    private String gradeName;
+    @Column(name = "grade")
     private String gradeTeacher;
 
     public Grade() {
     }
 
-    public long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getGradeName() {
-        return gradeName;
-    }
-
-    public void setGradeName(String gradeName) {
-        this.gradeName = gradeName;
+    public void setName(String gradeName) {
+        this.name = gradeName;
     }
 
     public String getGradeTeacher() {
@@ -52,7 +36,7 @@ public class Grade implements Serializable {
     public String toString() {
         return "Grade{" +
                 "id=" + id +
-                ", gradeName='" + gradeName + '\'' +
+                ", name='" + name + '\'' +
                 ", gradeTeacher='" + gradeTeacher + '\'' +
                 '}';
     }
