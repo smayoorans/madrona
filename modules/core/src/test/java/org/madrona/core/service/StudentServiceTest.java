@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/applicationContext.xml"})
@@ -33,8 +34,8 @@ public class StudentServiceTest {
         mayooran.setEmailAddress("smayoorans@gmail.com");
 
         mayooran.setGender(Gender.MALE);
-        mayooran.setDateOfBirth(LocalDate.parse("1987-07-02"));
-        mayooran.setJoinedDate(LocalDate.parse("2012-10-22"));
+        mayooran.setDateOfBirth(new Date());
+        mayooran.setJoinedDate(new Date());
 
         Address address = new Address();
         address.setHouseNumber("No 320");

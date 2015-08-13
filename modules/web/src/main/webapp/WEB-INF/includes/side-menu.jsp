@@ -31,17 +31,21 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-dashboard"></i>
+                        <span>Student</span>
+                        <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                        <li><a href="add-student"><i class="fa fa-circle-o"></i> Add Student</a></li>
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> View Student</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Search Student</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Assign Student to Class</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-files-o"></i>
-                        <span>Layout Options</span>
+                        <span>Staff</span>
                         <span class="label label-primary pull-right">4</span>
                     </a>
                     <ul class="treeview-menu">
@@ -52,7 +56,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="pages/widgets.html">
+                    <a href="#">
                         <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
                     </a>
                 </li>

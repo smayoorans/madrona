@@ -3,44 +3,36 @@ package org.madrona.common;
 import org.madrona.common.enumz.Gender;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
-public class Student implements Serializable {
+public class Student extends PersistentObject {
 
-    @Id
-    @GeneratedValue
-    @Column(unique = true, nullable = false)
-    private long id;
-
+    @Column(name = "student_name")
     private String studentName;
 
-    private LocalDate dateOfBirth;
+    @Column(name = "date_of_birth")
+    private Date dateOfBirth;
 
+    @Column(name = "grade")
     private String grade;
 
+    @Column(name = "gender")
     private Gender gender;
 
+    @Column(name = "email_address")
     private String emailAddress;
 
+    @Column(name = "mobile_number")
     private String mobileNumber;
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
     private Address homeAddress;
 
-    private LocalDate joinedDate;
+    @Column(name = "joined_date")
+    private Date joinedDate;
 
     public Student() {
-    }
-
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getStudentName() {
@@ -52,11 +44,11 @@ public class Student implements Serializable {
     }
 
 
-    public LocalDate getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -100,11 +92,11 @@ public class Student implements Serializable {
         this.homeAddress = homeAddress;
     }
 
-    public LocalDate getJoinedDate() {
+    public Date getJoinedDate() {
         return joinedDate;
     }
 
-    public void setJoinedDate(LocalDate joinedDate) {
+    public void setJoinedDate(Date joinedDate) {
         this.joinedDate = joinedDate;
     }
 
