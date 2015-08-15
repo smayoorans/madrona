@@ -6,7 +6,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "subject")
-public class Subject extends PersistentObject {
+public class Subject extends BaseEntity {
 
     public Subject() {
     }

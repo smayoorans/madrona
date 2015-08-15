@@ -5,20 +5,20 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <code>PersistentObject</code> is the base class for all persisted entity objects.
+ * <code>BaseEntity</code> is the base class for all persisted entity objects.
  * It provides implementation of <code>equals</code> and <code>hashCode</code>
  * to be shared by all persistent objects. It also tracks the version information across the
  * lifetime of the object
  * <p/>
  */
 @MappedSuperclass
-public abstract class PersistentObject implements Serializable {
+public abstract class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
     @Version
@@ -43,7 +43,7 @@ public abstract class PersistentObject implements Serializable {
     }
 
 
-    protected PersistentObject() {
+    protected BaseEntity() {
     }
 
     public Long getId() {
@@ -73,9 +73,9 @@ public abstract class PersistentObject implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PersistentObject)) return false;
+        if (!(o instanceof BaseEntity)) return false;
 
-        PersistentObject that = (PersistentObject) o;
+        BaseEntity that = (BaseEntity) o;
 
         if (id != that.id) return false;
         if (persisted_version != that.persisted_version) return false;
@@ -92,5 +92,7 @@ public abstract class PersistentObject implements Serializable {
 
     public void clearId() {
         this.id = null;
-    };
+    }
+
+    ;
 }

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/applicationContext.xml"})
 public class StaffServiceTest {
@@ -26,8 +28,12 @@ public class StaffServiceTest {
 
         Staff staff = new Staff.StaffBuilder("Mayooran", "Somasundaram")
                 .withCompletedDegree("Bsc")
+                .withMobile("0773400432")
+                .withDateOfBirth(new Date())
                 .withEmailAddress("smayoorans@gmail.com")
                 .build();
+
+
 
         boolean isSaved = staffService.save(staff);
         Thread.sleep(1000);

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "house")
-public class House extends PersistentObject {
+public class House extends BaseEntity {
 
     @Column(name = "name")
     private String name;

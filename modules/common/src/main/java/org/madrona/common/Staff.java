@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "staff")
-public class Staff extends PersistentObject {
+public class Staff extends BaseEntity {
 
     @Column(name = "first_name")
     private final String firstName;

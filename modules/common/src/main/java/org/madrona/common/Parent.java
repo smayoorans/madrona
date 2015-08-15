@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Entity
 @Table(name = "parent")
-public class Parent extends PersistentObject {
+public class Parent extends BaseEntity {
 
     @Column(name = "father_name")
     private String fatherName;

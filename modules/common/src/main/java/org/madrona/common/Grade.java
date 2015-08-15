@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "grade")
-public class Grade extends PersistentObject {
+public class Grade extends BaseEntity {
 
     @Column(name = "name")
     private String name;

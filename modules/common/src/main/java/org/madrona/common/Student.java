@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "student")
-public class Student extends PersistentObject {
+public class Student extends BaseEntity {
 
     @Column(name = "student_name")
     private String studentName;
