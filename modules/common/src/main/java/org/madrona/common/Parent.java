@@ -1,33 +1,26 @@
 package org.madrona.common;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @Entity
-public class Parent implements Serializable {
+@Table(name = "parent")
+public class Parent extends PersistentObject {
 
-    private static final long serialVersionUID = -6790693372846798580L;
-
-    @Id
-    @GeneratedValue
-    private int id;
+    @Column(name = "father_name")
     private String fatherName;
+
+    @Column(name = "father_job")
     private String fatherJob;
+
+    @Column(name = "mother_name")
     private String motherName;
+
+    @Column(name = "mother_job")
     private String motherJob;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getFatherName() {
         return fatherName;

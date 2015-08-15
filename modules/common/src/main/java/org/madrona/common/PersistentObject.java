@@ -26,11 +26,11 @@ public abstract class PersistentObject implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_time", nullable = false)
-    private Date createdTime;
+    private Date createdTime = new Date();
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "last_modified_time", nullable = false)
-    private Date lastModifiedTime;
+    private Date lastModifiedTime = new Date();
 
     @PrePersist
     protected void onCreate() {

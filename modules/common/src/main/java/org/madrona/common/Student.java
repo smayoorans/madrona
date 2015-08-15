@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "student")
 public class Student extends PersistentObject {
 
     @Column(name = "student_name")
