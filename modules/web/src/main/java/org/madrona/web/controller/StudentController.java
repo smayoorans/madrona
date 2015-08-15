@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
 @Controller
 public class StudentController {
 
@@ -31,6 +34,21 @@ public class StudentController {
     public String onInsertStudentAction(@ModelAttribute Student student){
         boolean isSaved = studentService.save(student);
         return "dash-board";
+    }
+
+    @RequestMapping(value = "/view-student", method = RequestMethod.GET)
+    public String onViewStudent(HttpServletRequest request, ModelMap modelMap){
+        Student student = studentService.get(Long.parseLong(request.getParameter("id")));
+        modelMap.addAttribute("student", student);
+        return "student/view";
+    }
+
+
+    @RequestMapping(value = "/view-all-student", method = RequestMethod.GET)
+    public String onViewAllStudents(HttpServletRequest request, ModelMap modelMap){
+        List<Student> students = studentService.getAll();
+        modelMap.addAttribute("students", students);
+        return "student/view-all";
     }
 
 }

@@ -40,6 +40,7 @@
                         <li class="active"><a href="#"><i class="fa fa-circle-o"></i> View Student</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Search Student</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Assign Student to Class</a></li>
+                        <li><a href="view-all-student"><i class="fa fa-circle-o"></i> View All Students</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
