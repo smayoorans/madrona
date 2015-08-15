@@ -66,4 +66,8 @@ public class StudentController {
         return "student/view-all";
     }
 
+    @RequestMapping(value = "/add-student-to-class", method = RequestMethod.GET)
+    public String onAddStudentToClasses() {
+        return "student/add-student-to-class";
+    }
 }

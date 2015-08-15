@@ -74,6 +74,28 @@
                                 </div><!-- /.input group -->
                             </div><!-- /.form group -->
 
+
+                            <div class='span4'>
+                                <ol class='simple_with_animation vertical'>
+                                    <li>Item 1</li>
+                                    <li>Item 2</li>
+                                    <li>Item 3</li>
+                                    <li>Item 4</li>
+                                    <li>Item 5</li>
+                                    <li>Item 6</li>
+                                </ol>
+                            </div>
+                            <div class='span4'>
+                                <ol class='simple_with_animation vertical'>
+                                    <li class='highlight'>Item 1</li>
+                                    <li class='highlight'>Item 2</li>
+                                    <li class='highlight'>Item 3</li>
+                                    <li class='highlight'>Item 4</li>
+                                    <li class='highlight'>Item 5</li>
+                                    <li class='highlight'>Item 6</li>
+                                </ol>
+                            </div>
+
                                 <%--Profile Picture--%>
 
                             <div class="form-group">
