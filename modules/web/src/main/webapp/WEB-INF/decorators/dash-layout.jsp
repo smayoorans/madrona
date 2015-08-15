@@ -28,6 +28,10 @@
     <link href="<c:url value="/resources/plugins/datatables/dataTables.bootstrap.css"/>" rel="stylesheet"
           type="text/css"/>
 
+     <%--Sortable--%>
+    <link href="<c:url value="/resources/plugins/sortable/jquery-sortable.css"/>" rel="stylesheet"
+          type="text/css"/>
+
     <!-- daterange picker -->
     <link href="<c:url value="/resources/plugins/daterangepicker/daterangepicker-bs3.css"/>" rel="stylesheet"
           type="text/css"/>
@@ -102,6 +106,9 @@
 
 <%--File Input--%>
 <script src="<c:url value="/resources/plugins/fileinput/fileinput.js"/>" type="text/javascript"></script>
+
+<%--sortable--%>
+<script src="<c:url value="/resources/plugins/sortable/jquery-sortable.js"/>" type="text/javascript"></script>
 
 <!-- DATA TABES SCRIPT -->
 <script src="<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/>" type="text/javascript"></script>
@@ -214,6 +221,44 @@
 </script>
 
 
+<script type="text/javascript">
+    var adjustment;
+
+    $("ol.simple_with_animation").sortable({
+        group: 'simple_with_animation',
+        pullPlaceholder: false,
+        // animation on drop
+        onDrop: function  ($item, container, _super) {
+            var $clonedItem = $('<li/>').css({height: 0});
+            $item.before($clonedItem);
+            $clonedItem.animate({'height': $item.height()});
+
+            $item.animate($clonedItem.position(), function  () {
+                $clonedItem.detach();
+                _super($item, container);
+            });
+        },
+
+        // set $item relative to cursor position
+        onDragStart: function ($item, container, _super) {
+            var offset = $item.offset(),
+                    pointer = container.rootGroup.pointer;
+
+            adjustment = {
+                left: pointer.left - offset.left,
+                top: pointer.top - offset.top
+            };
+
+            _super($item, container);
+        },
+        onDrag: function ($item, position) {
+            $item.css({
+                left: position.left - adjustment.left,
+                top: position.top - adjustment.top
+            });
+        }
+    });
+</script>
 
 </body>
 </html>
