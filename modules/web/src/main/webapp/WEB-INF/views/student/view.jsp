@@ -66,14 +66,20 @@
 
                             <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
-                                <label>Date masks:</label>
+                                <label>Date of Birth</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" path="dateOfBirth" data-mask="true"/>
                                 </div><!-- /.input group -->
                             </div><!-- /.form group -->
+
+                            <div class="form-group">
+
+                                <img class="img-rounded img-thumbnail" width="200px" src="resources/profiles/${student.profilePicture}"/>
+                            </div>
+
                         </div>
                         <!-- /.box-body -->
                     </div>

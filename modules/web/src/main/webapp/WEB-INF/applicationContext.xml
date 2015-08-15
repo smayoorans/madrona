@@ -45,7 +45,7 @@
     <bean id="studentDao" class="org.madrona.core.dao.impl.StudentDaoImpl"/>
 
     <bean id="uploadService" class="org.madrona.web.controller.UploadServiceImpl">
-        <property name="rootFilePath" value="C:\"/>
+        <property name="rootFilePath" value="C:\Users\USER\Documents\developments\madrona\modules\web\src\main\webapp\resources"/>
     </bean>
 </beans>
 

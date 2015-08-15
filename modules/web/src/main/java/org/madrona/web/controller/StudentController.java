@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,19 +41,20 @@ public class StudentController {
                                         @RequestParam("profile_picture") MultipartFile profilePicture) {
 
         String profileImageId = uploadService.upload(profilePicture);
-
-        student.setProfilePicture(profileImageId);
+        if(profileImageId != null){
+            student.setProfilePicture(profileImageId);
+        }
         boolean isSaved = studentService.save(student);
 
-        return "dash-board";
-
+        return "redirect:/view-all-student";
 
     }
 
     @RequestMapping(value = "/view-student", method = RequestMethod.GET)
-    public String onViewStudent(HttpServletRequest request, ModelMap modelMap) {
+    public String onViewStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
         Student student = studentService.get(Long.parseLong(request.getParameter("id")));
         modelMap.addAttribute("student", student);
+
         return "student/view";
     }
 
