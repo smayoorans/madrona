@@ -45,6 +45,9 @@
     <link href="<c:url value="/resources/plugins/jvectormap/jquery-jvectormap-1.2.2.css"/>" rel="stylesheet"
           type="text/css"/>
 
+    <%--File input--%>
+    <link href="<c:url value="/resources/plugins/fileinput/fileinput.css"/>" rel="stylesheet" type="text/css"/>
+
     <!-- Theme style -->
     <link href="<c:url value="/resources/dist/css/AdminLTE.min.css"/>" rel="stylesheet" type="text/css"/>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -96,6 +99,9 @@
 <script src="<c:url value="/resources/plugins/colorpicker/bootstrap-colorpicker.min.js"/>" type="text/javascript"></script>
 <!-- bootstrap time picker -->
 <script src="<c:url value="/resources/plugins/timepicker/bootstrap-timepicker.min.js"/>" type="text/javascript"></script>
+
+<%--File Input--%>
+<script src="<c:url value="/resources/plugins/fileinput/fileinput.js"/>" type="text/javascript"></script>
 
 <!-- DATA TABES SCRIPT -->
 <script src="<c:url value="/resources/plugins/datatables/jquery.dataTables.min.js"/>" type="text/javascript"></script>
@@ -195,6 +201,19 @@
         });
     });
 </script>
+
+
+<script type="text/javascript">
+    $("#profile_picture").fileinput({
+        showUpload: false,
+        showCaption: false,
+        browseClass: "btn btn-default",
+        fileType: "any",
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+    });
+</script>
+
+
 
 </body>
 </html>

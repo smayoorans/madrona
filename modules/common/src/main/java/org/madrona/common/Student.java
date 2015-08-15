@@ -33,6 +33,9 @@ public class Student extends BaseEntity {
     @Column(name = "joined_date")
     private Date joinedDate;
 
+    @Column(name = "profile_picture")
+    private String profilePicture;
+
     public Student() {
     }
 
@@ -101,11 +104,18 @@ public class Student extends BaseEntity {
         this.joinedDate = joinedDate;
     }
 
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
-                ", firstName='" + studentName + '\'' +
+                "studentName='" + studentName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", grade='" + grade + '\'' +
                 ", gender=" + gender +
@@ -113,6 +123,7 @@ public class Student extends BaseEntity {
                 ", mobileNumber='" + mobileNumber + '\'' +
                 ", homeAddress=" + homeAddress +
                 ", joinedDate=" + joinedDate +
+                ", profilePicture='" + profilePicture + '\'' +
                 '}';
     }
 }

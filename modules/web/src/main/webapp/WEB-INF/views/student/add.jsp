@@ -48,12 +48,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="file">File</label>
-                                <input type="file" class="form-control" id="file" name="file"/>
-                            </div>
-
-
-                            <div class="form-group">
                                 <label for="grade">Grade</label>
                                 <form:input type="text" class="form-control" id="grade"
                                        placeholder="Enter Grade" path="grade"/>
@@ -79,6 +73,14 @@
                                     <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" path="dateOfBirth" data-mask="true"/>
                                 </div><!-- /.input group -->
                             </div><!-- /.form group -->
+
+                                <%--Profile Picture--%>
+
+                            <div class="form-group">
+                                <label for="profile_picture">Student Profile Picture</label>
+                                <input id="profile_picture" type="file" name="profile_picture">
+                            </div>
+
                         </div>
                         <!-- /.box-body -->
                     </div>
