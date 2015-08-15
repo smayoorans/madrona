@@ -9,11 +9,13 @@ import org.madrona.core.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 @Controller
@@ -51,4 +53,48 @@ public class StudentController {
         return "student/view-all";
     }
 
+
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String onLoadUploadPage(HttpServletRequest request, ModelMap modelMap){
+        List<Student> students = studentService.getAll();
+        modelMap.addAttribute("students", students);
+        return "upload";
+    }
+
+    /**
+     * Upload single file using Spring Controller
+     */
+    @RequestMapping(value = "/upload-file", method = RequestMethod.POST)
+    public @ResponseBody
+    String uploadFileHandler(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
+
+        if (!file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
+
+                // Creating the directory to store file
+                String rootPath = "/home/mayooran/Desktop";
+                File dir = new File(rootPath + File.separator + "tmpFiles");
+                if (!dir.exists())
+                    dir.mkdirs();
+
+                // Create the file on server
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + name);
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+                LOGGER.info("Server File Location=" + serverFile.getAbsolutePath());
+
+                return "You successfully uploaded file=" + name;
+            } catch (Exception e) {
+                return "You failed to upload " + name + " => " + e.getMessage();
+            }
+        } else {
+            return "You failed to upload " + name
+                    + " because the file was empty.";
+        }
+    }
 }
