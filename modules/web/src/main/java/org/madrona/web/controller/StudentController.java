@@ -33,9 +33,43 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/insert-student", method = RequestMethod.POST)
-    public String onInsertStudentAction(@ModelAttribute Student student){
-        boolean isSaved = studentService.save(student);
-        return "dash-board";
+    @ResponseBody
+    public String onInsertStudentAction(@ModelAttribute Student student, @RequestParam("file") MultipartFile file){
+
+        String name = "filename.jsp";
+
+        if (!file.isEmpty()) {
+            try {
+                byte[] bytes = file.getBytes();
+
+                // Creating the directory to store file
+                String rootPath = "/home/mayooran/Desktop";
+                File dir = new File(rootPath + File.separator + "tmpFiles");
+                if (!dir.exists())
+                    dir.mkdirs();
+
+                // Create the file on server
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + name);
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+                LOGGER.info("Server File Location=" + serverFile.getAbsolutePath());
+
+                LOGGER.info("You successfully uploaded file=" + name);
+                boolean isSaved = studentService.save(student);
+                return "dash-board";
+            } catch (Exception e) {
+                return "You failed to upload " + name + " => " + e.getMessage();
+            }
+        } else {
+            return "You failed to upload " + name
+                    + " because the file was empty.";
+        }
+
+
     }
 
     @RequestMapping(value = "/view-student", method = RequestMethod.GET)

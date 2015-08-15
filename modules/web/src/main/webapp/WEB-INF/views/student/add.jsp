@@ -26,7 +26,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form:form role="form" commandName="student" method="post" action="insert-student">
+        <form:form role="form" commandName="student" method="post" action="insert-student" enctype="multipart/form-data">
 
             <div class="row">
                 <!-- left column -->
@@ -46,6 +46,12 @@
                                             placeholder="Enter Student Name"
                                             path="studentName"/>
                             </div>
+
+                            <div class="form-group">
+                                <label for="file">File</label>
+                                <input type="file" class="form-control" id="file" name="file"/>
+                            </div>
+
 
                             <div class="form-group">
                                 <label for="grade">Grade</label>
@@ -123,99 +129,6 @@
             </div>
             <!-- /.row -->
 
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Personal Information</h3>
-                        </div>
-                        <!-- /.box-header -->
-
-                        <div class="box-body">
-
-                            <div class="form-group">
-                                <label for="studentName">Student Name</label>
-                                <form:input type="text" class="form-control" id="studentName"
-                                            placeholder="Enter Student Name"
-                                            path="studentName"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="grade">Grade</label>
-                                <form:input type="text" class="form-control" id="grade"
-                                            placeholder="Enter Grade" path="grade"/>
-                            </div>
-
-                            <!-- select -->
-                            <div class="form-group">
-                                <label for="gender">Gender</label>
-                                <form:select id="gender" class="form-control" path="gender">
-                                    <c:forEach items="${genderBean.values}" var="state">
-                                        <form:option value="${state}">${state}</form:option>
-                                    </c:forEach>
-                                </form:select>
-                            </div>
-
-                            <!-- Date dd/mm/yyyy -->
-                            <div class="form-group">
-                                <label>Date of Birth</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" path="dateOfBirth" data-mask="true"/>
-                                </div><!-- /.input group -->
-                            </div><!-- /.form group -->
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!--/.col (left) -->
-
-                <!-- right column -->
-                <div class="col-md-6">
-                    <!-- general form elements disabled -->
-                    <div class="box box-warning">
-                        <div class="box-header">
-                            <h3 class="box-title">Contact Info</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <!-- text input -->
-
-                            <div class="form-group">
-                                <label>Email Address</label>
-                                <form:input type="text" class="form-control" placeholder="Enter Email" path="emailAddress"/>
-                            </div>
-
-
-                            <!-- phone mask -->
-                            <div class="form-group">
-                                <label>Phone Number</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <form:input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask="true" path="mobileNumber"/>
-                                </div><!-- /.input group -->
-                            </div><!-- /.form group -->
-
-                            <!-- textarea -->
-                            <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" rows="3" placeholder="Enter Address"></textarea>
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!--/.col (right) -->
-            </div>
 
             <div class="row">
                 <div class="col-md-12">
