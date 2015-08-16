@@ -95,11 +95,13 @@ public class Address implements Serializable {
     @Override
     public String toString() {
         return "Address{" +
-                "houseNumber='" + houseNumber + '\'' +
+                "id=" + id +
+                ", houseNumber='" + houseNumber + '\'' +
                 ", addressLine1='" + addressLine1 + '\'' +
                 ", addressLine2='" + addressLine2 + '\'' +
                 ", district='" + district + '\'' +
                 ", province='" + province + '\'' +
+                ", student=" + student +
                 '}';
     }
 }

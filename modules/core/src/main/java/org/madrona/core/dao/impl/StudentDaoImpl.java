@@ -91,7 +91,7 @@ public class StudentDaoImpl implements StudentDao {
     public boolean update(Student student) {
         logger.info("Updating student information with new information of [{}]", student);
         try {
-            getHibernateSession().saveOrUpdate(student);
+            getHibernateSession().update(student);
             return true;
         } catch (HibernateException ex) {
             logger.error("Error occurred while updating the student information [{}], [{}] ", student, ex);

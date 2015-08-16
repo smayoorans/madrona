@@ -15,7 +15,7 @@ public class Student extends BaseEntity {
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "grade_id")
     private Grade grade;
 

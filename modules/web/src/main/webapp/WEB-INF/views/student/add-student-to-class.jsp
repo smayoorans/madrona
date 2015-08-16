@@ -41,10 +41,15 @@
                         <div class="box-body">
                             <div class='span4'>
                                 <ol class='simple_with_animation vertical'>
-                                    <li><img src="<c:url value="/resources/dist/img/user1-128x128.jpg"/>"
-                                             class="img-thumbnail img-circle">
-                                        <span style="padding-left: 30px;font-size: 20px">Mayooran</span>
-                                    </li>
+                                    <c:forEach items="${students}" var="student">
+                                        <li><img src="<c:url value="/resources/profiles/${student.profilePicture}"/>"
+                                                 class="img-thumbnail img-circle" width="100px">
+                                            <span style="padding-left: 30px;font-size: 20px">
+                                            <a href="view-student?id=${student.id}"> ${student.studentName}</a>
+                                            </span>
+                                        </li>
+                                    </c:forEach>
+
                                     <li><img src="<c:url value="/resources/dist/img/user3-128x128.jpg"/>"
                                              class="img-thumbnail img-circle">
                                         <span style="padding-left: 30px;font-size: 20px">Shanya</span>

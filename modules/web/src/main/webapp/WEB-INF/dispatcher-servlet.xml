@@ -54,7 +54,7 @@
                 <!-- Disable the second-level cache  -->
                 <!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</prop>-->
                 <!-- Enable Hibernate's automatic session context management -->
-                <!--<prop key="hibernate.curren t_session_context_class">thread</prop>-->
+                <prop key="hibernate.curren t_session_context_class">thread</prop>
             </props>
         </property>
     </bean>

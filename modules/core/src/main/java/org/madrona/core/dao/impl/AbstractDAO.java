@@ -44,7 +44,7 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
     }
 
     private Session getHibernateSession() {
-        return sessionFactory.openSession();
+        return sessionFactory.getCurrentSession();
     }
 
     protected boolean save(T object) {
@@ -103,7 +103,7 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
     protected boolean update(T object) {
         logger.info("Updating {} information with new information of [{}]", clazz.getSimpleName(), object);
         try {
-            getHibernateSession().merge(object);
+            getHibernateSession().update(object);
             return true;
         } catch (HibernateException ex) {
             logger.error("Error occurred while updating the {} information [{}], [{}] ",clazz.getSimpleName(), object, ex);

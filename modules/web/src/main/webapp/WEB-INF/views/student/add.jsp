@@ -47,11 +47,11 @@
                                             path="studentName"/>
                             </div>
 
-                           <%-- <div class="form-group">
-                                <label for="grade">Grade</label>
-                                <form:input type="text" class="form-control" id="grade"
-                                            placeholder="Enter Grade" path="grade"/>
-                            </div>--%>
+                                <%-- <div class="form-group">
+                                     <label for="grade">Grade</label>
+                                     <form:input type="text" class="form-control" id="grade"
+                                                 placeholder="Enter Grade" path="grade"/>
+                                 </div>--%>
 
                             <div class="form-group">
                                 <label for="gradeId">Grade</label>
@@ -87,6 +87,21 @@
                                 <!-- /.input group -->
                             </div>
                             <!-- /.form group -->
+
+                            <div class="form-group">
+                                <label>Joining Date</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                                path="joinedDate" data-mask="true"/>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.form group -->
+
 
                                 <%--Profile Picture--%>
                             <div class="form-group">
@@ -135,10 +150,38 @@
                             </div>
                             <!-- /.form group -->
 
-                            <!-- textarea -->
                             <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" rows="3" placeholder="Enter Address"></textarea>
+                                <label>House Number</label>
+                                <form:input type="text" class="form-control" placeholder="Enter House Number"
+                                            path="homeAddress.houseNumber"/>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Address Line 1</label>
+                                <form:input type="text" class="form-control" placeholder="Enter Address Line 2"
+                                            path="homeAddress.addressLine1"/>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Address Line 2</label>
+                                <form:input type="text" class="form-control" placeholder="Enter Address Line 1"
+                                            path="homeAddress.addressLine2"/>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>District</label>
+                                <form:input type="text" class="form-control" placeholder="Enter District"
+                                            path="homeAddress.district"/>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Province</label>
+                                <form:input type="text" class="form-control" placeholder="Enter Province"
+                                            path="homeAddress.province"/>
                             </div>
 
                         </div>
@@ -156,7 +199,8 @@
                     <div class="box box-default">
                         <div class="box-body">
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button> &nbsp;
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                &nbsp;
                                 <button type="reset" class="btn btn-default">Clear</button>
                             </div>
                         </div>
