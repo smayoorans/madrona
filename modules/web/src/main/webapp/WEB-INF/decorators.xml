@@ -8,6 +8,7 @@
 
     <decorator name="loginLayout" page="login-layout.jsp">
         <pattern>*/sign-in</pattern>
+        <pattern>*/sign-up</pattern>
         <pattern>*/access-denied</pattern>
     </decorator>
 
