@@ -37,10 +37,21 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="add-student"><i class="fa fa-circle-o"></i> Add Student</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> View Student</a></li>
                         <li><a href="#"><i class="fa fa-circle-o"></i> Search Student</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Assign Student to Class</a></li>
+                        <li><a href="add-student-to-class"><i class="fa fa-circle-o"></i> Assign Student to Class</a></li>
                         <li><a href="view-all-student"><i class="fa fa-circle-o"></i> View All Students</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Class</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="add-grade"><i class="fa fa-circle-o"></i> Add New Class</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Search Class</a></li>
+                        <li><a href="view-all-grade"><i class="fa fa-circle-o"></i> View All Classes</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

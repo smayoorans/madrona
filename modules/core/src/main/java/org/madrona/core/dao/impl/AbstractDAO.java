@@ -6,6 +6,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.madrona.common.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,6 +69,18 @@ public abstract class AbstractDAO<T extends Serializable> implements Serializabl
             return object;
         } catch (HibernateException ex) {
             logger.error("Error occurred while retrieving {} details for id [{}], [{}]", clazz.getSimpleName(), id, ex);
+            return null;
+        }
+    }
+
+
+    protected List get(String propertyName, Object value) {
+        try {
+            return getHibernateSession().createCriteria(clazz)
+                    .add(Restrictions.eq(propertyName, value))
+                    .list();
+        } catch (HibernateException ex) {
+            logger.error("Error occurred while retrieving details for [{}]", ex);
             return null;
         }
     }

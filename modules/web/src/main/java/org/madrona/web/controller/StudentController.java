@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,15 +37,17 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/insert-student", method = RequestMethod.POST)
-    @ResponseBody
     public String onInsertStudentAction(@ModelAttribute Student student,
-                                        @RequestParam("profile_picture") MultipartFile profilePicture) {
+                                        @RequestParam("profile_picture") MultipartFile profilePicture, RedirectAttributes redirectAttributes) {
 
         String profileImageId = uploadService.upload(profilePicture);
         if(profileImageId != null){
             student.setProfilePicture(profileImageId);
         }
         boolean isSaved = studentService.save(student);
+        if(isSaved){
+            redirectAttributes.addAttribute("success", true);
+        } else redirectAttributes.addAttribute("error", true);
 
         return "redirect:/view-all-student";
 

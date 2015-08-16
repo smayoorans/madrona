@@ -16,17 +16,17 @@
             New Student Information
             <small>Preview</small>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Forms</a></li>
-            <li class="active">General Elements</li>
-        </ol>
+        <div class="breadcrumb">
+            <a href="view-all-student" class="btn btn-block btn-success btn-flat">View All Student</a>
+        </div>
     </section>
+    <br>
 
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form:form role="form" commandName="student" method="post" action="insert-student" enctype="multipart/form-data">
+        <form:form role="form" commandName="student" method="post" action="insert-student"
+                   enctype="multipart/form-data">
 
             <div class="row">
                 <!-- left column -->
@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label for="grade">Grade</label>
                                 <form:input type="text" class="form-control" id="grade"
-                                       placeholder="Enter Grade" path="grade"/>
+                                            placeholder="Enter Grade" path="grade"/>
                             </div>
 
                             <!-- select -->
@@ -66,38 +66,19 @@
                             <!-- Date dd/mm/yyyy -->
                             <div class="form-group">
                                 <label>Date of Birth</label>
+
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" path="dateOfBirth" data-mask="true"/>
-                                </div><!-- /.input group -->
-                            </div><!-- /.form group -->
-
-
-                            <div class='span4'>
-                                <ol class='simple_with_animation vertical'>
-                                    <li>Item 1</li>
-                                    <li>Item 2</li>
-                                    <li>Item 3</li>
-                                    <li>Item 4</li>
-                                    <li>Item 5</li>
-                                    <li>Item 6</li>
-                                </ol>
+                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                                path="dateOfBirth" data-mask="true"/>
+                                </div>
+                                <!-- /.input group -->
                             </div>
-                            <div class='span4'>
-                                <ol class='simple_with_animation vertical'>
-                                    <li class='highlight'>Item 1</li>
-                                    <li class='highlight'>Item 2</li>
-                                    <li class='highlight'>Item 3</li>
-                                    <li class='highlight'>Item 4</li>
-                                    <li class='highlight'>Item 5</li>
-                                    <li class='highlight'>Item 6</li>
-                                </ol>
-                            </div>
+                            <!-- /.form group -->
 
                                 <%--Profile Picture--%>
-
                             <div class="form-group">
                                 <label for="profile_picture">Student Profile Picture</label>
                                 <input id="profile_picture" type="file" name="profile_picture">
@@ -123,20 +104,26 @@
 
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <form:input type="text" class="form-control" placeholder="Enter Email" path="emailAddress"/>
+                                <form:input type="text" class="form-control" placeholder="Enter Email"
+                                            path="emailAddress"/>
                             </div>
 
 
                             <!-- phone mask -->
                             <div class="form-group">
                                 <label>Phone Number</label>
+
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-phone"></i>
                                     </div>
-                                    <form:input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask="true" path="mobileNumber"/>
-                                </div><!-- /.input group -->
-                            </div><!-- /.form group -->
+                                    <form:input type="text" class="form-control"
+                                                data-inputmask='"mask": "(999) 999-9999"' data-mask="true"
+                                                path="mobileNumber"/>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.form group -->
 
                             <!-- textarea -->
                             <div class="form-group">
@@ -159,7 +146,8 @@
                     <div class="box box-default">
                         <div class="box-body">
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Submit</button> &nbsp;
+                                <button type="reset" class="btn btn-default">Clear</button>
                             </div>
                         </div>
                     </div>

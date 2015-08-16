@@ -7,17 +7,16 @@
     <title>View Student</title>
 </head>
 <body>
-<jsp:useBean id="genderBean" class="org.madrona.common.bean.GenderBean"/>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1> Student Data Table
-            <small>All student details</small>
+        <h1> Class Details Table
+            <small>All Class details</small>
         </h1>
         <div class="breadcrumb">
-            <a href="add-student" class="btn btn-block btn-success btn-flat">Add New Student</a>
+            <a href="add-grade" class="btn btn-block btn-success btn-flat">Add New Class</a>
         </div>
 
         <br>
@@ -47,38 +46,32 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Sudent Full Data Table</h3>
+                        <h3 class="box-title">Class Details Table</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Student Id</th>
-                                <th>Student Name</th>
-                                <th>Grade</th>
-                                <th>Email</th>
-                                <th>Phone</th>
+                                <th>Id</th>
+                                <th>Class Name</th>
+                                <th>Class Teacher Name</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${students}" var="student">
+                            <c:forEach items="${grades}" var="grade">
                                 <tr>
-                                    <td>${student.id}</td>
-                                    <td><a href="view-student?id=${student.id}">${student.studentName}</a></td>
-                                    <td>${student.grade}</td>
-                                    <td>${student.emailAddress}</td>
-                                    <td>${student.mobileNumber}</td>
+                                    <td>${grade.id}</td>
+                                    <td><a href="view-grade?id=${grade.id}">${grade.name}</a></td>
+                                    <td>${grade.teacher}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Student Id</th>
-                                <th>Student Name</th>
-                                <th>Grade</th>
-                                <th>Email</th>
-                                <th>Phone</th>
+                                <th>Id</th>
+                                <th>Class Name</th>
+                                <th>Class Teacher Name</th>
                             </tr>
                             </tfoot>
                         </table>
