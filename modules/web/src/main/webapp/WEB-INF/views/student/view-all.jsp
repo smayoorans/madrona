@@ -66,7 +66,7 @@
                                 <tr>
                                     <td>${student.id}</td>
                                     <td><a href="view-student?id=${student.id}">${student.studentName}</a></td>
-                                    <td>${student.grade}</td>
+                                    <td>${student.grade.name}</td>
                                     <td>${student.emailAddress}</td>
                                     <td>${student.mobileNumber}</td>
                                 </tr>

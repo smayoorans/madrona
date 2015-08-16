@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <label for="grade">Grade</label>
                                 <form:input type="text" class="form-control" id="grade"
-                                       placeholder="Enter Grade" path="grade"/>
+                                       placeholder="Enter Grade" path="grade.name"/>
                             </div>
 
                             <!-- select -->

@@ -15,8 +15,9 @@ public class Student extends BaseEntity {
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
-    @Column(name = "grade")
-    private String grade;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "grade_id")
+    private Grade grade;
 
     @Column(name = "gender")
     private Gender gender;
@@ -56,11 +57,11 @@ public class Student extends BaseEntity {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getGrade() {
+    public Grade getGrade() {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(Grade grade) {
         this.grade = grade;
     }
 

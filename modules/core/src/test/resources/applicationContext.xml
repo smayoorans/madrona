@@ -38,7 +38,7 @@
                 <!-- Echo all executed SQL to stdout -->
                 <prop key="hibernate.show_sql">true</prop>
                 <!-- Automatically validates or exports schema DDL to the database when the SessionFactory is created-->
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <!-- Pretty print the SQL in the log and console -->
                 <prop key="hibernate.format_sql">true</prop>
                 <!-- Disable the second-level cache  -->

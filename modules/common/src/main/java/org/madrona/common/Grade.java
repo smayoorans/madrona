@@ -1,6 +1,7 @@
 package org.madrona.common;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "grade")
@@ -11,6 +12,9 @@ public class Grade extends BaseEntity {
 
     @Column(name = "teacher")
     private String teacher;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "grade")
+    private Set<Student> students;
 
     public Grade() {
     }
@@ -29,6 +33,14 @@ public class Grade extends BaseEntity {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 
     @Override

@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.madrona.common.Address;
+import org.madrona.common.Grade;
 import org.madrona.common.Student;
 import org.madrona.common.enumz.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class StudentServiceTest {
     @Autowired
     private StudentService studentService;
 
+    @Autowired
+    private GradeService gradeService;
+
     @Test
     public void testSaveStudentWithAddress() throws Exception {
 
@@ -32,6 +36,10 @@ public class StudentServiceTest {
         Student mayooran = new Student();
         mayooran.setStudentName("Mayooran");
         mayooran.setEmailAddress("smayoorans@gmail.com");
+
+
+        Grade grade = gradeService.get(1);
+        mayooran.setGrade(grade);
 
         mayooran.setGender(Gender.MALE);
         mayooran.setDateOfBirth(new Date());

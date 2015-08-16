@@ -3,7 +3,9 @@ package org.madrona.web.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.madrona.common.Grade;
 import org.madrona.common.Student;
+import org.madrona.core.service.GradeService;
 import org.madrona.core.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,20 +28,28 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private GradeService gradeService;
 
     @Autowired
     private UploadService uploadService;
 
     @RequestMapping(value = "/add-student", method = RequestMethod.GET)
     public String showAddStudentPage(ModelMap modelMap) {
+        List<Grade> gradeList = gradeService.getAll();
+        modelMap.addAttribute("gradeList", gradeList);
         modelMap.addAttribute("student", new Student());
         return "student/add";
     }
 
     @RequestMapping(value = "/insert-student", method = RequestMethod.POST)
     public String onInsertStudentAction(@ModelAttribute Student student,
-                                        @RequestParam("profile_picture") MultipartFile profilePicture, RedirectAttributes redirectAttributes) {
+                                        @RequestParam("profile_picture") MultipartFile profilePicture,
+                                        @RequestParam("gradeId") String gradeId,
+                                        RedirectAttributes redirectAttributes) {
 
+        Grade grade = gradeService.get(Long.parseLong(gradeId));
+        student.setGrade(grade);
         String profileImageId = uploadService.upload(profilePicture);
         if(profileImageId != null){
             student.setProfilePicture(profileImageId);

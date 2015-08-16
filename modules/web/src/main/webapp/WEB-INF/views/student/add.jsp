@@ -47,11 +47,21 @@
                                             path="studentName"/>
                             </div>
 
-                            <div class="form-group">
+                           <%-- <div class="form-group">
                                 <label for="grade">Grade</label>
                                 <form:input type="text" class="form-control" id="grade"
                                             placeholder="Enter Grade" path="grade"/>
+                            </div>--%>
+
+                            <div class="form-group">
+                                <label for="gradeId">Grade</label>
+                                <select id="gradeId" name="gradeId" class="form-control">
+                                    <c:forEach items="${gradeList}" var="aGrade">
+                                        <option value="${aGrade.id}">${aGrade.name}</option>
+                                    </c:forEach>
+                                </select>
                             </div>
+
 
                             <!-- select -->
                             <div class="form-group">
