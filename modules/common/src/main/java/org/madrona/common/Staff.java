@@ -22,7 +22,7 @@ public class Staff extends BaseEntity {
     @Column(name = "gender")
     private final Gender gender;
 
-    @Column(name = " date_of_birth")
+    @Column(name = "date_of_birth")
     private final Date dateOfBirth;
 
     @Column(name = "email_address")
