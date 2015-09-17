@@ -65,9 +65,9 @@
                             <c:forEach items="${students}" var="student">
                                 <tr>
                                     <td>${student.id}</td>
-                                    <td><a href="view-student?id=${student.id}">${student.studentName}</a></td>
-                                    <td>${student.grade.name}</td>
-                                    <td>${student.emailAddress}</td>
+                                    <td><a href="view-student?id=${student.id}">${student.name}</a></td>
+                                    <td>${student.currentGrade.name}</td>
+                                    <td>${student.email}</td>
                                     <td>${student.mobileNumber}</td>
                                 </tr>
                             </c:forEach>

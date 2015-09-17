@@ -3,8 +3,6 @@ package org.madrona.web.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.madrona.core.service.GradeService;
-import org.madrona.core.service.StudentService;
 import org.madrona.web.model.Grade;
 import org.madrona.web.model.Student;
 import org.madrona.web.repo.GradeRepository;
@@ -27,15 +25,12 @@ import java.util.List;
 public class StudentController {
 
     private static final Logger LOGGER = LogManager.getLogger(StudentController.class);
-
-    @Autowired
-    private GradeRepository gradeRepository;
-
-//    @Autowired
-    private UploadService uploadService;
-
     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    private GradeRepository gradeRepository;
+    //    @Autowired
+    private UploadService uploadService;
 
     @RequestMapping(value = "/add-student", method = RequestMethod.GET)
     public String showAddStudentPage(ModelMap modelMap) {
@@ -75,10 +70,10 @@ public class StudentController {
 
     @RequestMapping(value = "/view-student", method = RequestMethod.GET)
     public String onViewStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-//        Student student = studentService.get(Long.parseLong(request.getParameter("id")));
+        Student student = studentRepository.findOne(request.getParameter("id"));
 //        List<Grade> gradeList = gradeService.getAll();
 //        modelMap.addAttribute("gradeList", gradeList);
-//        modelMap.addAttribute("student", student);
+        modelMap.addAttribute("student", student);
         return "student/view";
     }
 
@@ -88,20 +83,18 @@ public class StudentController {
                                         @RequestParam("gradeId") String gradeId,
                                         RedirectAttributes redirectAttributes) {
 
-        //Assigning Grade
-//        Grade grade = gradeService.get(Long.parseLong(gradeId));
-//        grade.getStudents().add(student);
-//        student.setGrade(grade);
+        Grade grade = gradeRepository.findOne(gradeId);
+        student.setCurrentGrade(grade);
 
-        String profileImageId = uploadService.upload(profilePicture);
+//        String profileImageId = uploadService.upload(profilePicture);
+//
+//        if (profileImageId != null) {
+//            student.setProfilePicture(profileImageId);
+//        }
 
-        if (profileImageId != null) {
-            student.setProfilePicture(profileImageId);
-        }
+        Student updatedStudent = studentRepository.save(student);
 
-//        boolean isSaved = studentService.update(student);
-
-        if (true) {
+        if (updatedStudent != null) {
             redirectAttributes.addAttribute("success", true);
         } else redirectAttributes.addAttribute("error", true);
 
@@ -111,8 +104,8 @@ public class StudentController {
 
     @RequestMapping(value = "/view-all-student", method = RequestMethod.GET)
     public String onViewAllStudents(HttpServletRequest request, ModelMap modelMap) {
-//        List<Student> students = studentService.getAll();
-//        modelMap.addAttribute("students", students);
+        List<Student> students = (List<Student>) studentRepository.findAll();
+        modelMap.addAttribute("students", students);
         return "student/view-all";
     }
 
@@ -126,11 +119,13 @@ public class StudentController {
     @RequestMapping(value = "/delete-student", method = RequestMethod.POST)
     public String onDeleteStudentAction(@RequestParam("id") String id, ModelMap modelMap) {
         LOGGER.info("Deleting student details from the system.");
-//        int delete = studentService.delete(Long.parseLong(id));
-        if (true) {
+        try {
+            studentRepository.delete(id);
             modelMap.addAttribute("delete-success", true);
-        } else modelMap.addAttribute("delete-failure", true);
-        return "redirect:/view-all-student";
-
+            return "redirect:/view-all-student";
+        } catch (Exception e) {
+            modelMap.addAttribute("delete-failure", true);
+            return "redirect:/view-all-student";
+        }
     }
 }

@@ -15,4 +15,6 @@ public interface StudentRepository extends CrudRepository<Student, String> {
     Student findByAddressHomeNumber(String addressHomeNumber);
 
     List<Student> findByGender(Gender gender);
+
+    List<Student> findByCurrentGradeName(String currentGradeName);
 }

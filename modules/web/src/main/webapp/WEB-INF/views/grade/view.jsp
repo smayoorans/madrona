@@ -25,7 +25,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form:form role="form" commandName="grade" method="post" action="insert-grade">
+        <form:form role="form" commandName="grade" method="post" action="update-grade">
 
             <div class="row">
                 <!-- left column -->
@@ -40,6 +40,10 @@
                         <div class="box-body">
 
                             <div class="form-group">
+                                <form:input type="text" class="form-control" id="id" path="id" readonly="true"/>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="className">Class Name</label>
                                 <form:input type="text" class="form-control" id="className"
                                             placeholder="Enter Student Name"
@@ -49,7 +53,7 @@
                             <div class="form-group">
                                 <label for="grade">Class Teacher Name</label>
                                 <form:input type="text" class="form-control" id="grade"
-                                            placeholder="Enter Grade" path="teacher"/>
+                                            placeholder="Enter Grade" path="currentClassTeacher.name"/>
                             </div>
                         </div>
                         <!-- /.box-body -->
@@ -79,12 +83,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${grade.students}" var="student">
+                                <c:forEach items="${students}" var="student">
                                     <tr>
                                         <td>${student.id}</td>
-                                        <td><a href="view-student?id=${student.id}">${student.studentName}</a></td>
-                                        <td>${student.grade.name}</td>
-                                        <td>${student.emailAddress}</td>
+                                        <td><a href="view-student?id=${student.id}">${student.name}</a></td>
+                                        <td>${student.currentGrade.name}</td>
+                                        <td>${student.email}</td>
                                         <td>${student.mobileNumber}</td>
                                     </tr>
                                 </c:forEach>
@@ -113,7 +117,7 @@
                     <div class="box box-default">
                         <div class="box-body">
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button> &nbsp;
+                                <button type="submit" class="btn btn-primary">Update</button> &nbsp;
                                 <button type="reset" class="btn btn-default">Clear</button>
                             </div>
                         </div>

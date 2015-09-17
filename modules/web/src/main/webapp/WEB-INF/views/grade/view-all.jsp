@@ -63,7 +63,7 @@
                                 <tr>
                                     <td>${grade.id}</td>
                                     <td><a href="view-grade?id=${grade.id}">${grade.name}</a></td>
-                                    <td>${grade.teacher}</td>
+                                    <td>${grade.currentClassTeacher.name}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
