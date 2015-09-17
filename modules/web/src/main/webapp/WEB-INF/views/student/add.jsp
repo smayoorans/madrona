@@ -41,10 +41,10 @@
                         <div class="box-body">
 
                             <div class="form-group">
-                                <label for="studentName">Student Name</label>
-                                <form:input type="text" class="form-control" id="studentName"
+                                <label for="name">Student Name</label>
+                                <form:input type="text" class="form-control" id="name"
                                             placeholder="Enter Student Name"
-                                            path="studentName"/>
+                                            path="name"/>
                             </div>
 
                                 <%-- <div class="form-group">
@@ -130,7 +130,7 @@
                             <div class="form-group">
                                 <label>Email Address</label>
                                 <form:input type="text" class="form-control" placeholder="Enter Email"
-                                            path="emailAddress"/>
+                                            path="email"/>
                             </div>
 
 
@@ -153,35 +153,35 @@
                             <div class="form-group">
                                 <label>House Number</label>
                                 <form:input type="text" class="form-control" placeholder="Enter House Number"
-                                            path="homeAddress.houseNumber"/>
+                                            path="address.homeNumber"/>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Address Line 1</label>
                                 <form:input type="text" class="form-control" placeholder="Enter Address Line 2"
-                                            path="homeAddress.addressLine1"/>
+                                            path="address.addressLineOne"/>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Address Line 2</label>
                                 <form:input type="text" class="form-control" placeholder="Enter Address Line 1"
-                                            path="homeAddress.addressLine2"/>
+                                            path="address.addressLineTwo"/>
                             </div>
 
 
                             <div class="form-group">
                                 <label>District</label>
                                 <form:input type="text" class="form-control" placeholder="Enter District"
-                                            path="homeAddress.district"/>
+                                            path="address.district"/>
                             </div>
 
 
                             <div class="form-group">
                                 <label>Province</label>
                                 <form:input type="text" class="form-control" placeholder="Enter Province"
-                                            path="homeAddress.province"/>
+                                            path="address.province"/>
                             </div>
 
                         </div>

@@ -16,10 +16,6 @@
         <module>core</module>
         <module>web</module>
         <module>api</module>
-        <module>trans-log-generator</module>
-        <module>design</module>
-        <module>effective-java</module>
-        <module>disruptor</module>
     </modules>
 
 </project>

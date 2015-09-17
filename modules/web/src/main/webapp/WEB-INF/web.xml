@@ -41,8 +41,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/dispatcher-servlet.xml,
-            /WEB-INF/applicationContext.xml,
-            /WEB-INF/spring-database.xml
+            /WEB-INF/applicationContext.xml
         </param-value>
     </context-param>
 

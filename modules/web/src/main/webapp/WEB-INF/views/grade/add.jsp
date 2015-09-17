@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label for="grade">Class Teacher Name</label>
                                 <form:input type="text" class="form-control" id="grade"
-                                            placeholder="Enter Grade" path="teacher"/>
+                                            placeholder="Enter Grade" path="currentClassTeacher.name"/>
                             </div>
                         </div>
                         <!-- /.box-body -->

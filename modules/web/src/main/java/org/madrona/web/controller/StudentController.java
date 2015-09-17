@@ -3,11 +3,12 @@ package org.madrona.web.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.madrona.common.Address;
-import org.madrona.common.Grade;
-import org.madrona.common.Student;
 import org.madrona.core.service.GradeService;
 import org.madrona.core.service.StudentService;
+import org.madrona.web.model.Grade;
+import org.madrona.web.model.Student;
+import org.madrona.web.repo.GradeRepository;
+import org.madrona.web.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,16 +29,18 @@ public class StudentController {
     private static final Logger LOGGER = LogManager.getLogger(StudentController.class);
 
     @Autowired
-    private StudentService studentService;
-    @Autowired
-    private GradeService gradeService;
+    private GradeRepository gradeRepository;
+
+//    @Autowired
+    private UploadService uploadService;
 
     @Autowired
-    private UploadService uploadService;
+    StudentRepository studentRepository;
 
     @RequestMapping(value = "/add-student", method = RequestMethod.GET)
     public String showAddStudentPage(ModelMap modelMap) {
-        List<Grade> gradeList = gradeService.getAll();
+        Iterable<Grade> grades = gradeRepository.findAll();
+        List<Grade> gradeList = (List<Grade>) grades;
         modelMap.addAttribute("gradeList", gradeList);
         modelMap.addAttribute("student", new Student());
         return "student/add";
@@ -49,20 +52,20 @@ public class StudentController {
                                         @RequestParam("gradeId") String gradeId,
                                         RedirectAttributes redirectAttributes) {
 
-        Grade grade = gradeService.get(Long.parseLong(gradeId));
-        student.setGrade(grade);
+        Grade grade = gradeRepository.findOne(gradeId);
+        System.out.println("Getting grade" + grade);
+        student.setCurrentGrade(grade);
+        /*
         String profileImageId = uploadService.upload(profilePicture);
         if (profileImageId != null) {
             student.setProfilePicture(profileImageId);
-        }
+        }*/
 
         // Assigning student to address
-        Address address = student.getHomeAddress();
-        address.setStudent(student);
-        student.setHomeAddress(address);
 
-        boolean isSaved = studentService.save(student);
-        if (isSaved) {
+        LOGGER.info("Student saving " + student);
+        Student savedStudent = studentRepository.save(student);
+        if (true) {
             redirectAttributes.addAttribute("success", true);
         } else redirectAttributes.addAttribute("error", true);
 
@@ -72,10 +75,10 @@ public class StudentController {
 
     @RequestMapping(value = "/view-student", method = RequestMethod.GET)
     public String onViewStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
-        Student student = studentService.get(Long.parseLong(request.getParameter("id")));
-        List<Grade> gradeList = gradeService.getAll();
-        modelMap.addAttribute("gradeList", gradeList);
-        modelMap.addAttribute("student", student);
+//        Student student = studentService.get(Long.parseLong(request.getParameter("id")));
+//        List<Grade> gradeList = gradeService.getAll();
+//        modelMap.addAttribute("gradeList", gradeList);
+//        modelMap.addAttribute("student", student);
         return "student/view";
     }
 
@@ -86,9 +89,9 @@ public class StudentController {
                                         RedirectAttributes redirectAttributes) {
 
         //Assigning Grade
-        Grade grade = gradeService.get(Long.parseLong(gradeId));
-        grade.getStudents().add(student);
-        student.setGrade(grade);
+//        Grade grade = gradeService.get(Long.parseLong(gradeId));
+//        grade.getStudents().add(student);
+//        student.setGrade(grade);
 
         String profileImageId = uploadService.upload(profilePicture);
 
@@ -96,9 +99,9 @@ public class StudentController {
             student.setProfilePicture(profileImageId);
         }
 
-        boolean isSaved = studentService.update(student);
+//        boolean isSaved = studentService.update(student);
 
-        if (isSaved) {
+        if (true) {
             redirectAttributes.addAttribute("success", true);
         } else redirectAttributes.addAttribute("error", true);
 
@@ -108,23 +111,23 @@ public class StudentController {
 
     @RequestMapping(value = "/view-all-student", method = RequestMethod.GET)
     public String onViewAllStudents(HttpServletRequest request, ModelMap modelMap) {
-        List<Student> students = studentService.getAll();
-        modelMap.addAttribute("students", students);
+//        List<Student> students = studentService.getAll();
+//        modelMap.addAttribute("students", students);
         return "student/view-all";
     }
 
     @RequestMapping(value = "/add-student-to-class", method = RequestMethod.GET)
     public String onAddStudentToClasses(ModelMap modelMap) {
-        List<Student> students = studentService.getAll();
-        modelMap.addAttribute("students", students);
+//        List<Student> students = studentService.getAll();
+//        modelMap.addAttribute("students", students);
         return "student/add-student-to-class";
     }
 
     @RequestMapping(value = "/delete-student", method = RequestMethod.POST)
     public String onDeleteStudentAction(@RequestParam("id") String id, ModelMap modelMap) {
         LOGGER.info("Deleting student details from the system.");
-        int delete = studentService.delete(Long.parseLong(id));
-        if (delete == 1) {
+//        int delete = studentService.delete(Long.parseLong(id));
+        if (true) {
             modelMap.addAttribute("delete-success", true);
         } else modelMap.addAttribute("delete-failure", true);
         return "redirect:/view-all-student";
