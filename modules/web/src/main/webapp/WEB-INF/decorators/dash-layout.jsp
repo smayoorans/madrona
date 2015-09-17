@@ -260,6 +260,36 @@
     });
 </script>
 
+<script type="text/javascript">
+    $('#gradeId2').change (
+            function() {
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json",
+                    dataType: "json",
+                    url: "get-student-by-grade-id",
+                    data: {gradeId: this.value },
+                    success: function(data){
+//                        Do you all logic here
+                        console.log("response :" + data.length);
+                        console.log("response :" + data[0].name);
+                        $('#available-students').empty();
+                        for (i = 0; i < data.length; i++) {
+                            var s = "<li>"+ "<span style='padding-left: 30px;font-size: 20px'>"+
+                                    data[i].name + "</span></li>";
+                            $('#available-students').prepend(s);
+                        }
+
+                    },
+                    error: function(e) {
+                        //called when there is an error
+                        console.log("Error" + e.toString());
+                    }
+                });
+            }
+    );
+</script>
+
 </body>
 </html>
 

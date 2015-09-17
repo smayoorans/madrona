@@ -10,10 +10,7 @@ import org.madrona.web.repo.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -34,8 +31,7 @@ public class StudentController {
 
     @RequestMapping(value = "/add-student", method = RequestMethod.GET)
     public String showAddStudentPage(ModelMap modelMap) {
-        Iterable<Grade> grades = gradeRepository.findAll();
-        List<Grade> gradeList = (List<Grade>) grades;
+        List<Grade> gradeList = (List<Grade>) gradeRepository.findAll();
         modelMap.addAttribute("gradeList", gradeList);
         modelMap.addAttribute("student", new Student());
         return "student/add";
@@ -56,11 +52,8 @@ public class StudentController {
             student.setProfilePicture(profileImageId);
         }*/
 
-        // Assigning student to address
-
-        LOGGER.info("Student saving " + student);
         Student savedStudent = studentRepository.save(student);
-        if (true) {
+        if (savedStudent != null) {
             redirectAttributes.addAttribute("success", true);
         } else redirectAttributes.addAttribute("error", true);
 
@@ -71,8 +64,8 @@ public class StudentController {
     @RequestMapping(value = "/view-student", method = RequestMethod.GET)
     public String onViewStudent(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
         Student student = studentRepository.findOne(request.getParameter("id"));
-//        List<Grade> gradeList = gradeService.getAll();
-//        modelMap.addAttribute("gradeList", gradeList);
+        List<Grade> gradeList = (List<Grade>) gradeRepository.findAll();
+        modelMap.addAttribute("gradeList", gradeList);
         modelMap.addAttribute("student", student);
         return "student/view";
     }
@@ -87,7 +80,6 @@ public class StudentController {
         student.setCurrentGrade(grade);
 
 //        String profileImageId = uploadService.upload(profilePicture);
-//
 //        if (profileImageId != null) {
 //            student.setProfilePicture(profileImageId);
 //        }
@@ -111,10 +103,21 @@ public class StudentController {
 
     @RequestMapping(value = "/add-student-to-class", method = RequestMethod.GET)
     public String onAddStudentToClasses(ModelMap modelMap) {
-//        List<Student> students = studentService.getAll();
-//        modelMap.addAttribute("students", students);
+
+        List<Grade> gradeList = (List<Grade>) gradeRepository.findAll();
+        modelMap.addAttribute("gradeList", gradeList);
+
+        List<Student> students = (List<Student>) studentRepository.findAll();
+        modelMap.addAttribute("students", students);
         return "student/add-student-to-class";
     }
+
+    @RequestMapping(value = "/get-student-by-grade-id", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Student> getStudentByGradeId(@RequestParam("gradeId") String gradeId) {
+        return studentRepository.findByCurrentGradeName(gradeId);
+    }
+
 
     @RequestMapping(value = "/delete-student", method = RequestMethod.POST)
     public String onDeleteStudentAction(@RequestParam("id") String id, ModelMap modelMap) {

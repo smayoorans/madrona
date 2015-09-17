@@ -23,7 +23,7 @@
 
 
     <!--unable cache -->
-    <mvc:interceptors>
+<!--    <mvc:interceptors>
         <bean id="webContentInterceptor"
               class="org.springframework.web.servlet.mvc.WebContentInterceptor">
             <property name="cacheSeconds" value="0"/>
@@ -31,7 +31,7 @@
             <property name="useCacheControlHeader" value="true"/>
             <property name="useCacheControlNoStore" value="true"/>
         </bean>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 
     <!--localization and internationalization starts here -->
     <bean id="messageSource"

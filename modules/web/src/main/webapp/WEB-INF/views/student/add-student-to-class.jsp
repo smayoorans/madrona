@@ -26,11 +26,21 @@
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form role="form" method="post" action="insert-student">
+        <form role="form" method="post" action="#">
 
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="gradeId2">Grade</label>
+                        <select id="gradeId2" name="gradeId2" class="form-control">
+                            <c:forEach items="${gradeList}" var="aGrade">
+                                <option value="${aGrade.name}">${aGrade.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
                     <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-header">
@@ -40,17 +50,17 @@
 
                         <div class="box-body">
                             <div class='span4'>
-                                <ol class='simple_with_animation vertical'>
+                                <ol class='simple_with_animation vertical' id="available-students">
                                     <c:forEach items="${students}" var="student">
-                                        <li><img src="<c:url value="/resources/profiles/${student.profilePicture}"/>"
-                                                 class="img-thumbnail img-circle" width="100px">
+                                        <li><%--<img src="<c:url value="/resources/profiles/${student.profilePicture}"/>"
+                                                 class="img-thumbnail img-circle" width="100px">--%>
                                             <span style="padding-left: 30px;font-size: 20px">
-                                            <a href="view-student?id=${student.id}"> ${student.studentName}</a>
+                                            <a href="view-student?id=${student.id}"> ${student.name}</a>
                                             </span>
                                         </li>
                                     </c:forEach>
 
-                                    <li><img src="<c:url value="/resources/dist/img/user3-128x128.jpg"/>"
+                                   <%-- <li><img src="<c:url value="/resources/dist/img/user3-128x128.jpg"/>"
                                              class="img-thumbnail img-circle">
                                         <span style="padding-left: 30px;font-size: 20px">Shanya</span>
                                     </li>
@@ -62,7 +72,7 @@
                                     <li><img src="<c:url value="/resources/dist/img/user5-128x128.jpg"/>"
                                              class="img-thumbnail img-circle">
                                         <span style="padding-left: 30px;font-size: 20px">Sinthuja</span>
-                                    </li>
+                                    </li>--%>
                                 </ol>
                             </div>
                         </div>
@@ -83,7 +93,7 @@
                         <div class="box-body">
                             <div class='span4'>
                                 <ol class='simple_with_animation vertical'>
-                                    <li><img src="<c:url value="/resources/dist/img/user6-128x128.jpg"/>"
+                                    <%--<li><img src="<c:url value="/resources/dist/img/user6-128x128.jpg"/>"
                                              class="img-thumbnail img-circle">
                                         <span style="padding-left: 30px;font-size: 20px">Kayooran</span>
                                     </li>
@@ -94,7 +104,7 @@
                                     <li><img src="<c:url value="/resources/dist/img/user8-128x128.jpg"/>"
                                              class="img-thumbnail img-circle">
                                         <span style="padding-left: 30px;font-size: 20px">Banujan</span>
-                                    </li>
+                                    </li>--%>
 
                                 </ol>
                             </div>
