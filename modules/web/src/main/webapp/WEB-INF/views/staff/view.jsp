@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Add New Student</title>
+    <title>Add New Staff</title>
 </head>
 <body>
 <jsp:useBean id="genderBean" class="org.madrona.common.bean.GenderBean"/>
@@ -12,11 +12,11 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Student Information
+        <h1>Staff Information
             <small>Preview</small>
         </h1>
         <div class="breadcrumb">
-            <a href="view-all-student" class="btn btn-block btn-success btn-flat">View All Student</a>
+            <a href="view-all-staff" class="btn btn-block btn-success btn-flat">View All Staff</a>
         </div>
     </section>
     <br>
@@ -24,7 +24,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form:form role="form" commandName="student" method="post" action="update-student"
+        <form:form role="form" commandName="staff" method="post" action="update-staff"
                    enctype="multipart/form-data">
 
             <div class="row">
@@ -33,7 +33,7 @@
                     <!-- general form elements -->
                     <div class="box box-primary">
                         <div class="box-header">
-                            <h3 class="box-title">Personal Information</h3>
+                            <h3 class="box-title">Personal Info</h3>
                         </div>
                         <!-- /.box-header -->
 
@@ -44,7 +44,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="name">Student Name</label>
+                                <label for="name">Staff Name</label>
                                 <form:input type="text" class="form-control" id="name"
                                             placeholder="Enter Student Name"
                                             path="name"/>
@@ -53,7 +53,6 @@
                             <div class="form-group">
                                 <label for="gradeId">Grade</label>
                                 <select id="gradeId" name="gradeId" class="form-control">
-                                    <option value="${student.currentGrade.id}">${student.currentGrade.name}</option>
                                     <c:forEach items="${gradeList}" var="aGrade">
                                         <option value="${aGrade.id}">${aGrade.name}</option>
                                     </c:forEach>
@@ -103,7 +102,7 @@
 
                                 <%--Profile Picture--%>
                             <div class="form-group">
-                                <label for="profile_picture">Student Profile Picture</label>
+                                <label for="profile_picture">Staff Profile Picture</label>
                                 <input id="profile_picture" type="file" name="profile_picture">
                             </div>
 
@@ -228,14 +227,14 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="delete-form" method="post" action="delete-student?id=${student.id}">
+                <form id="delete-form" method="post" action="delete-staff?id=${staff.id}">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Warning</h4>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete the student details
+                        Are you sure you want to delete the staff details
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

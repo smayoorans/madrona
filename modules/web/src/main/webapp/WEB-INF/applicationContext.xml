@@ -40,7 +40,7 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
-    <bean id="uploadService" class="org.madrona.web.controller.UploadServiceImpl">
+    <bean id="uploadService" class="org.madrona.web.service.UploadServiceImpl">
         <property name="rootFilePath"
                   value="C:\Users\USER\Documents\developments\madrona\modules\web\src\main\webapp\resources"/>
     </bean>

@@ -1,4 +1,4 @@
-package org.madrona.web.controller;
+package org.madrona.web.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
