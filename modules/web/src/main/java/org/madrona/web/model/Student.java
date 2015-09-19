@@ -41,6 +41,8 @@ public class Student {
     @Field("email")
     private String email;
 
+    private UserAccess userAccess;
+
 
     public String getName() {
         return name;
@@ -128,6 +130,14 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserAccess getUserAccess() {
+        return userAccess;
+    }
+
+    public void setUserAccess(UserAccess userAccess) {
+        this.userAccess = userAccess;
     }
 
     @Override
