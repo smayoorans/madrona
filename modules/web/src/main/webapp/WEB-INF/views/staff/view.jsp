@@ -12,8 +12,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            New Student Information
+        <h1>Student Information
             <small>Preview</small>
         </h1>
         <div class="breadcrumb">
@@ -25,7 +24,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form:form role="form" commandName="student" method="post" action="add-student-action"
+        <form:form role="form" commandName="student" method="post" action="update-student"
                    enctype="multipart/form-data">
 
             <div class="row">
@@ -41,6 +40,10 @@
                         <div class="box-body">
 
                             <div class="form-group">
+                                <form:input type="text" class="form-control" id="id" path="id" readonly="true"/>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="name">Student Name</label>
                                 <form:input type="text" class="form-control" id="name"
                                             placeholder="Enter Student Name"
@@ -50,6 +53,7 @@
                             <div class="form-group">
                                 <label for="gradeId">Grade</label>
                                 <select id="gradeId" name="gradeId" class="form-control">
+                                    <option value="${student.currentGrade.id}">${student.currentGrade.name}</option>
                                     <c:forEach items="${gradeList}" var="aGrade">
                                         <option value="${aGrade.id}">${aGrade.name}</option>
                                     </c:forEach>
@@ -144,6 +148,8 @@
                             </div>
                             <!-- /.form group -->
 
+                            <%--<form:input type="text" class="form-control" id="address-id" path="address.id"/>--%>
+
                             <div class="form-group">
                                 <label>House Number</label>
                                 <form:input type="text" class="form-control" placeholder="Enter House Number"
@@ -178,6 +184,13 @@
                                             path="address.province"/>
                             </div>
 
+
+                                <%--   <!-- textarea -->
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea class="form-control" rows="3" placeholder="Enter Address"></textarea>
+                                    </div>--%>
+
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -193,9 +206,15 @@
                     <div class="box box-default">
                         <div class="box-body">
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Next</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 &nbsp;
                                 <button type="reset" class="btn btn-default">Clear</button>
+
+
+                                <button type="button" class="btn btn-danger pull-right" data-toggle="modal"
+                                        data-target="#myModal">Delete
+                                </button>
+
                             </div>
                         </div>
                     </div>
@@ -204,6 +223,29 @@
         </form:form>
     </section>
     <!-- /.content -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="delete-form" method="post" action="delete-student?id=${student.id}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Warning</h4>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete the student details
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 <!-- /.content-wrapper -->
 </body>

@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Add New Student</title>
+    <title>Add New Staff</title>
 </head>
 <body>
 <jsp:useBean id="genderBean" class="org.madrona.common.bean.GenderBean"/>
@@ -13,11 +13,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            New Student Information
+            New Staff Information
             <small>Preview</small>
         </h1>
         <div class="breadcrumb">
-            <a href="view-all-student" class="btn btn-block btn-success btn-flat">View All Student</a>
+            <a href="view-all-staff" class="btn btn-block btn-success btn-flat">View All Staff</a>
         </div>
     </section>
     <br>
@@ -25,7 +25,7 @@
     <!-- Main content -->
     <section class="content">
         <!-- form start -->
-        <form:form role="form" commandName="student" method="post" action="add-student-action"
+        <form:form role="form" commandName="staff" method="post" action="insert-staff"
                    enctype="multipart/form-data">
 
             <div class="row">
@@ -41,9 +41,9 @@
                         <div class="box-body">
 
                             <div class="form-group">
-                                <label for="name">Student Name</label>
+                                <label for="name">Staff Name</label>
                                 <form:input type="text" class="form-control" id="name"
-                                            placeholder="Enter Student Name"
+                                            placeholder="Enter Staff Name"
                                             path="name"/>
                             </div>
 
@@ -99,7 +99,7 @@
 
                                 <%--Profile Picture--%>
                             <div class="form-group">
-                                <label for="profile_picture">Student Profile Picture</label>
+                                <label for="profile_picture">Staff Profile Picture</label>
                                 <input id="profile_picture" type="file" name="profile_picture">
                             </div>
 
@@ -193,7 +193,7 @@
                     <div class="box box-default">
                         <div class="box-body">
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">Next</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                                 &nbsp;
                                 <button type="reset" class="btn btn-default">Clear</button>
                             </div>

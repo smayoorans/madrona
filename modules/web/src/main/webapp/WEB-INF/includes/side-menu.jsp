@@ -61,10 +61,10 @@
                         <span class="label label-primary pull-right">4</span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                        <li><a href="add-staff"><i class="fa fa-circle-o"></i> Add Staff</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Search Staff</a></li>
+                        <li><a href="add-staff-to-class"><i class="fa fa-circle-o"></i> Assign Staff to Class</a></li>
+                        <li><a href="view-all-staff"><i class="fa fa-circle-o"></i> View All Staffs</a></li>
                     </ul>
                 </li>
                 <li>

@@ -37,7 +37,7 @@ public class StudentController {
         return "student/add";
     }
 
-    @RequestMapping(value = "/insert-student", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-student-action", method = RequestMethod.POST)
     public String onInsertStudentAction(@ModelAttribute Student student,
                                         @RequestParam("profile_picture") MultipartFile profilePicture,
                                         @RequestParam("gradeId") String gradeId,
@@ -57,7 +57,7 @@ public class StudentController {
             redirectAttributes.addAttribute("success", true);
         } else redirectAttributes.addAttribute("error", true);
 
-        return "redirect:/view-all-student";
+        return "redirect:/add-parent";
 
     }
 
