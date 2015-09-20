@@ -27,7 +27,7 @@ public class StudentController {
     StudentRepository studentRepository;
     @Autowired
     private GradeRepository gradeRepository;
-    //    @Autowired
+    @Autowired
     private UploadService uploadService;
 
     @RequestMapping(value = "/add-student", method = RequestMethod.GET)

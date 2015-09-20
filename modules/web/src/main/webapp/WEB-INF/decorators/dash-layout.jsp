@@ -53,7 +53,7 @@
     <link href="<c:url value="/resources/plugins/fileinput/fileinput.css"/>" rel="stylesheet" type="text/css"/>
 
     <!-- Theme style -->
-    <link href="<c:url value="/resources/dist/css/AdminLTE.min.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/resources/dist/css/AdminLTE.css"/>" rel="stylesheet" type="text/css"/>
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="<c:url value="/resources/dist/css/skins/_all-skins.min.css"/>" rel="stylesheet" type="text/css"/>

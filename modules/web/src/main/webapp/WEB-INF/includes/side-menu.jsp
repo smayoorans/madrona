@@ -83,43 +83,43 @@
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>ATTENDANCE</span>
+                        <i class="fa fa-th"></i> <span>Attendance</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>CLASS SCHEDULING</span>
+                        <i class="fa fa-th"></i> <span>Class Scheduling</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>GRADING</span>
+                        <i class="fa fa-th"></i> <span>Grading</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>REPORTING</span>
+                        <i class="fa fa-th"></i> <span>Reporting</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>TIME TABLE MANAGEMENT</span>
+                        <i class="fa fa-th"></i> <span>Timetable Management</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>LIBRARY MANAGEMENT</span>
+                        <i class="fa fa-th"></i> <span>Library Management</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>CLASS SCHEDULING</span>
+                        <i class="fa fa-th"></i> <span>Class Scheduling</span>
                     </a>
                 </li>
 

@@ -34,8 +34,8 @@
                         <!-- Tabs within a box -->
                         <ul class="nav nav-tabs pull-left">
                             <li class="active"><a href="#general-info" data-toggle="tab">GENERAL INFO</a></li>
-                            <li><a href="#parent-info" data-toggle="tab">CONTACT INFO</a></li>
-                            <li><a href="#contact-info" data-toggle="tab">CONTACT INFO</a></li>
+                            <li><a href="#parent-info" data-toggle="tab">Parent Info</a></li>
+                            <li><a href="#contact-info" data-toggle="tab">Contact Info</a></li>
                             <li><a href="#enrollment-info" data-toggle="tab">ENROLLMENT INFO</a></li>
                             <li><a href="#others" data-toggle="tab">OTHERS</a></li>
                         </ul>
@@ -133,31 +133,160 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name">Username</label>
-                                                <form:input type="text" class="form-control" id="name"
-                                                            placeholder="Enter Student Name"
-                                                            path="userAccess.username"/>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="name">Password</label>
-                                                <form:input type="text" class="form-control" id="name"
-                                                            placeholder="Enter Student Name"
-                                                            path="userAccess.password"/>
+                                                <label for="primary-language">Primary Language</label>
+                                                <select id="primary-language" class="form-control">
+                                                    <c:forEach items="${genderBean.values}" var="language">
+                                                        <option value="${language}">${language}</option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
 
                                         </div>
                                         <!-- /.box-body -->
                                     </div>
                                     <!-- /.box -->
+                                    <div class="box box-success">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Account Info</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+
+                                            <div class="form-group required">
+                                                <label for="name" class="control-label">Username</label>
+                                                <form:input type="text" class="form-control" id="name"
+                                                            placeholder="Enter Username" path="userAccess.username"/>
+                                            </div>
+
+                                            <div class="form-group required">
+                                                <label for="name" class="control-label">Password</label>
+                                                <form:input type="text" class="form-control" id="name"
+                                                            placeholder="Enter Password"
+                                                            path="userAccess.password"/>
+                                            </div>
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
                                 </div>
-                                <div class="col-lg-12">
-                                    <a href="#contact-info" class="btn btn-primary" data-toggle="tab">Next</a>
-                                </div>
+<%--                                <div class="col-lg-12">
+                                    <a href="#contact-info" class="btn btn-primary col-sm-1" data-toggle="tab">Next</a>
+                                    <br>
+                                    <br>
+                                    <br>
+                                </div>--%>
+
 
                             </div>
 
-                            <div class="chart tab-pane" id="parent-info" style="position: relative; height: 300px;">
+                            <div class="chart tab-pane" id="parent-info" style="position: relative;">
+                                <br>
+                                <div class="col-md-6">
+                                    <!-- general form elements -->
+                                    <div class="box box-primary">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Father Details</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+
+                                        <div class="box-body">
+
+                                            <div class="form-group">
+                                                <label for="fatherName">Father Name</label>
+                                                <form:input type="text" class="form-control" id="fatherName"
+                                                            placeholder="Enter Fathher Name" path="parent.fatherName"/>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="fatherJob">Father Job</label>
+                                                <form:input type="text" class="form-control" id="fatherJob"
+                                                            placeholder="Enter Fathher Name" path="parent.fatherJob"/>
+                                            </div>
+
+                                            <!-- Date dd/mm/yyyy -->
+                                            <div class="form-group">
+                                                <label>Father Date of Birth</label>
+
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                                                path="parent.fatherDateOfBirth" data-mask="true"/>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                            <!-- /.form group -->
+
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+
+                                <div class="col-md-6">
+                                    <!-- general form elements disabled -->
+                                    <div class="box box-warning">
+                                        <div class="box-header">
+                                            <h3 class="box-title">Mother Details</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <!-- text input -->
+
+                                            <div class="form-group">
+                                                <label for="motherName">Mother Name</label>
+                                                <form:input type="text" class="form-control" id="motherName"
+                                                            placeholder="Enter Mother Name" path="parent.motherName"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="motherJob">Mother Job</label>
+                                                <form:input type="text" class="form-control" id="motherJob"
+                                                            placeholder="Enther Mother Job" path="parent.motherJob"/>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>Mother Date of Birth</label>
+
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <form:input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'"
+                                                                path="parent.motherDateOfBirth" data-mask="true"/>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                            <!-- /.form group -->
+
+
+                                            <!-- phone mask -->
+                                            <div class="form-group">
+                                                <label>Contact Number</label>
+
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-phone"></i>
+                                                    </div>
+                                                    <form:input type="text" class="form-control"
+                                                                data-inputmask='"mask": "(999) 999-9999"' data-mask="true"
+                                                                path="parent.contactNumber"/>
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+                                            <!-- /.form group -->
+
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+
+
 
                             </div>
 

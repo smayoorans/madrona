@@ -8,9 +8,6 @@ import java.util.Date;
 @Document(collection = "parent")
 public class Parent {
 
-    @Field
-    private String id;
-
     @Field(value = "father-name")
     private String fatherName;
 
@@ -32,14 +29,6 @@ public class Parent {
     @Field("contact-number")
     private String contactNumber;
 
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getFatherName() {
         return fatherName;

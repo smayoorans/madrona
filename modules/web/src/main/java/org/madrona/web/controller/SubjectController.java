@@ -30,13 +30,11 @@ public class SubjectController {
     @Autowired
     StaffRepository staffRepository;
     @Autowired
-    MongoOperations mongoOperations;
-    @Autowired
     private GradeRepository gradeRepository;
     @Autowired
     private SubjectRepository subjectRepository;
     @Autowired
-    private UploadService uploadService;
+    MongoOperations mongoOperations;
 
     @RequestMapping(value = "/add-subject", method = RequestMethod.GET)
     public String showAddSubjectPage(ModelMap modelMap) {
@@ -92,7 +90,6 @@ public class SubjectController {
     public String onDeleteStaffAction(@RequestParam("id") String id, ModelMap modelMap) {
         LOGGER.info("Deleting staff details from the system.");
         try {
-            staffRepository.delete(id);
             staffRepository.delete(id);
             modelMap.addAttribute("delete-success", true);
             return "redirect:/view-all-staff";

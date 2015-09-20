@@ -43,6 +43,8 @@ public class Student {
 
     private UserAccess userAccess;
 
+    private Parent parent;
+
 
     public String getName() {
         return name;
@@ -138,6 +140,14 @@ public class Student {
 
     public void setUserAccess(UserAccess userAccess) {
         this.userAccess = userAccess;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 
     @Override

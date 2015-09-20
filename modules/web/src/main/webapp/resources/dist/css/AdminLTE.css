@@ -4360,3 +4360,8 @@ fieldset[disabled] .btn-vk.active {
     white-space: normal!important;
   }
 }
+
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
